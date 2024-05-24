@@ -2,7 +2,7 @@
  * WebApp_t-ex01
  * model.dao.ConnectionManager.java
  */
-package dao;
+package model.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

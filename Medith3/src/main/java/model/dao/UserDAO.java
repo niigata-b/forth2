@@ -2,7 +2,7 @@
  * WebApp_t-ex01
  * model.dao.UserDAO.java
  */
-package dao;
+package model.dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
