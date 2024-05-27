@@ -10,6 +10,24 @@ import java.util.List;
 import model.entity.EmployeeBean;
 
 public class UserDAO {
+public boolean loginCheck(String employeeId,String password)throws ClassNotFoundException,SQLException{
+		
+		String spl = "SELECT * FROM employee WHERE employee_id = ? AND password";
+		
+		try(Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(spl)){
+			
+			pstmt.setString(1, employeeId);
+			pstmt.setString(2, password);
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			if(res.next()) {
+				return true;
+			}	
+		}
+		return false;
+	}
 
 	public List<EmployeeBean> selectAll() throws ClassNotFoundException, SQLException {
 		List<EmployeeBean> empList = new ArrayList<>();
