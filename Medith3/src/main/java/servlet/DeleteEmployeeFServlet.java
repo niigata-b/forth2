@@ -42,7 +42,6 @@ public class DeleteEmployeeFServlet extends HttpServlet {
         UserDAO userDao = new UserDAO();
         try {
             EmployeeBean emp = userDao.getEmployeeById(employeeId);
-            userDao.deleteEmployee(employeeId);
             request.setAttribute("employee", emp);
             request.getRequestDispatcher("delete-confirmation.jsp").forward(request, response);
         } catch (Exception e) {

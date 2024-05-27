@@ -37,18 +37,8 @@ public class UserListServlet extends HttpServlet {
         UserDAO userDao = new UserDAO();
 
         try {
-            if (name != null && !name.isEmpty() && position != null && !position.isEmpty() && section != null && !section.isEmpty()) {
-                empList = userDao.searchByNamePositionAndSection(name, position, section);
-            } else if (name != null && !name.isEmpty() && position != null && !position.isEmpty()) {
-                empList = userDao.searchByNameAndPosition(name, position);
-            } else if (position != null && !position.isEmpty() && section != null && !section.isEmpty()) {
-                empList = userDao.searchByPositionAndSection(position, section);
-            } else if (name != null && !name.isEmpty()) {
-                empList = userDao.searchByName(name);
-            } else if (position != null && !position.isEmpty()) {
-                empList = userDao.searchByPosition(position);
-            } else if (section != null && !section.isEmpty()) {
-                empList = userDao.searchBySection(section);
+            if ((name != null && !name.isEmpty()) || (position != null && !position.isEmpty()) || (section != null && !section.isEmpty())) {
+                empList = userDao.searchByCriteria(name, position, section);
             } else {
                 empList = userDao.selectAll();
             }
