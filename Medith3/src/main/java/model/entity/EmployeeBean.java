@@ -13,7 +13,9 @@ public class EmployeeBean {
 	private String update_datetime;
 	private String position_name;
 	private String section_name;
+	private String password;
 
+	
 	public String getEmployee_id() {
 		return employee_id;
 	}
@@ -101,5 +103,14 @@ public class EmployeeBean {
 	public void setSection_name(String section_name) {
 		this.section_name = section_name;
 	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 
 }

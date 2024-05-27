@@ -6,6 +6,11 @@
 <html>
 <head>
 <title>従業員情報変更</title>
+<style>
+	body {
+		text-align: center;
+	}
+</style>
 </head>
 <body>
     <h2>従業員情報変更</h2>
@@ -84,6 +89,9 @@
                 <option value="夜" <%= "夜".equals(emp.getTime()) ? "selected" : "" %>>夜</option>
                 <option value="不在" <%= "不在".equals(emp.getTime()) ? "selected" : "" %>>不在</option>
             </select>
+        </p>
+        <p>
+            パスワード: <input type="text" name="password" value="<%= emp.getPassword() %>">
         </p>
         <p>
             <input type="submit" value="更新">

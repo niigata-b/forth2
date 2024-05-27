@@ -45,6 +45,10 @@
             <input type="hidden" name="time" value="<%= emp.getTime() %>">
         </p>
         <p>
+            パスワード： <%= emp.getPassword() %>
+            <input type="hidden" name="time" value="<%= emp.getPassword() %>">
+        </p>
+        <p>
             <input type="submit" value="変更確定">
         </p>
     </form>

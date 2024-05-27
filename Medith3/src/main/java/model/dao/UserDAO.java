@@ -54,7 +54,7 @@ public class UserDAO {
 	public EmployeeBean getEmployeeById(String employeeId) throws SQLException, ClassNotFoundException {
 		String sql = "SELECT e.employee_id AS 'employee_id', p.position_name AS 'position_name', "
 				+ "s.section_name AS 'section_name', e.name AS 'name', e.gender AS 'gender', "
-				+ "e.age AS 'age', e.year AS 'year', e.time AS 'time' "
+				+ "e.age AS 'age', e.year AS 'year', e.time AS 'time' , e.password AS 'password'"
 				+ "FROM employee e, posi p, section s "
 				+ "WHERE e.position_id = p.position_id AND e.section_id = s.section_id AND e.employee_id = ?";
 		EmployeeBean emp = null;
@@ -73,6 +73,7 @@ public class UserDAO {
 					emp.setAge(res.getInt("age"));
 					emp.setYear(res.getString("year"));
 					emp.setTime(res.getString("time"));
+					emp.setPassword(res.getString("password"));
 				}
 			}
 		}
@@ -83,7 +84,7 @@ public class UserDAO {
 	public void updateEmployee(EmployeeBean emp) throws SQLException, ClassNotFoundException {
 		String sql = "UPDATE employee SET position_id = (SELECT position_id FROM posi WHERE position_name = ?), "
 				+ "section_id = (SELECT section_id FROM section WHERE section_name = ?), "
-				+ "name = ?, gender = ?, age = ?, year = ?, time = ? WHERE employee_id = ?";
+				+ "name = ?, gender = ?, age = ?, year = ?, time = ? ,password = ? WHERE employee_id = ?";
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 			pstmt.setString(1, emp.getPosition_name());
@@ -93,7 +94,8 @@ public class UserDAO {
 			pstmt.setInt(5, emp.getAge());
 			pstmt.setString(6, emp.getYear());
 			pstmt.setString(7, emp.getTime());
-			pstmt.setString(8, emp.getEmployee_id());
+			pstmt.setString(8, emp.getPassword());
+			pstmt.setString(9, emp.getEmployee_id());
 			pstmt.executeUpdate();
 		}
 	}

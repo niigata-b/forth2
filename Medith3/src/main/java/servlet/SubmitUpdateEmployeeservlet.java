@@ -28,6 +28,7 @@ public class SubmitUpdateEmployeeservlet extends HttpServlet {
 		int age = Integer.parseInt(request.getParameter("age"));
 		String year = request.getParameter("year");
 		String time = request.getParameter("time");
+		String password = request.getParameter("password");
 
 		EmployeeBean emp = new EmployeeBean();
 		emp.setEmployee_id(employeeId);
@@ -38,6 +39,7 @@ public class SubmitUpdateEmployeeservlet extends HttpServlet {
 		emp.setAge(age);
 		emp.setYear(year);
 		emp.setTime(time);
+		emp.setPassword(password);
 
 		request.setAttribute("employee", emp);
 		request.getRequestDispatcher("update-confirm.jsp").forward(request, response);
