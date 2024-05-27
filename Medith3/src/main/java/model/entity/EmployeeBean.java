@@ -1,6 +1,7 @@
 package model.entity;
 
 public class EmployeeBean {
+
 	private String employee_id;
 	private String position_id;
 	private String section_id;
