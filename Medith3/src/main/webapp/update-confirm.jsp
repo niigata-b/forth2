@@ -6,6 +6,11 @@
 <html>
 <head>
 <title>従業員情報変更確認</title>
+<style>
+	body {
+		text-align: center;
+	}
+</style>
 </head>
 <body>
     <h2>従業員情報変更確認</h2>
