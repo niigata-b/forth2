@@ -12,6 +12,9 @@
 	table {
 		margin:auto
 	}
+	.one{
+	
+	}
 </style>
 </head>
 <body>
@@ -22,8 +25,14 @@
 	<tr><th>No</th><td><jsp:getProperty name="board" property="board_id"/></td></tr>
 	<tr><th>更新日時</th><td><jsp:getProperty name="board" property="update_datetime"/></td></tr>
 	<tr><th>従業員ID</th><td><jsp:getProperty name="board" property="employee_id"/></td></tr>
-	<tr><th>タイトル</th><td><jsp:getProperty name="board" property="title"/></td></tr>
-	<tr><th>内容</th><td><jsp:getProperty name="board" property="content"/></td></tr>
+	
+</table>
+<br>
+<table border="1">
+	<tr><th>タイトル</th></tr>
+	<tr><td><jsp:getProperty name="board" property="title"/></td></tr>
+	<tr><th>内容</th></tr>
+	<tr><td><jsp:getProperty name="board" property="content"/></td></tr>
 </table>
 
 	<form action="boardlist" method="POST">

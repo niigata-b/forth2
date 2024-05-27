@@ -40,7 +40,7 @@
 	
 	<form action="board-write.jsp" method="post">
 	
-		<input type="submit" value="新規書き込み">
+		<input type="submit" text="employee_id" value="新規書き込み">
 	
 	</form><br>
 	
