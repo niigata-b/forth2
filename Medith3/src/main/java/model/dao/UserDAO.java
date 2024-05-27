@@ -16,7 +16,7 @@ public class UserDAO {
 
 		String sql = "SELECT e.employee_id AS 'employee_id', p.position_name AS 'position_name', "
 				+ "s.section_name AS 'section_name', e.name AS 'name', e.gender AS 'gender', "
-				+ "e.age AS 'age', e.year AS 'year', e.time AS 'time' "
+				+ "e.age AS 'age', e.year AS 'year', e.time AS 'time', e.update_datetime AS 'update_datetime'"
 				+ "FROM employee e, posi p, section s "
 				+ "WHERE e.position_id = p.position_id AND e.section_id = s.section_id";
 
@@ -34,6 +34,7 @@ public class UserDAO {
 				emp.setAge(res.getInt("age"));
 				emp.setYear(res.getString("year"));
 				emp.setTime(res.getString("time"));
+				emp.setUpdate_datetime(res.getString("update_datetime"));
 				empList.add(emp);
 			}
 		}
@@ -44,10 +45,11 @@ public class UserDAO {
 	public List<EmployeeBean> searchByCriteria(String name, String position, String section)
 			throws SQLException, ClassNotFoundException {
 		List<EmployeeBean> empList = new ArrayList<>();
+		
 		StringBuilder sql = new StringBuilder(
 				"SELECT e.employee_id AS 'employee_id', p.position_name AS 'position_name', "
 						+ "s.section_name AS 'section_name', e.name AS 'name', e.gender AS 'gender', "
-						+ "e.age AS 'age', e.year AS 'year', e.time AS 'time' "
+						+ "e.age AS 'age', e.year AS 'year', e.time AS 'time', e.update_datetime AS 'update_datetime'"
 						+ "FROM employee e, posi p, section s "
 						+ "WHERE e.position_id = p.position_id AND e.section_id = s.section_id");
 
@@ -86,6 +88,7 @@ public class UserDAO {
 					emp.setAge(res.getInt("age"));
 					emp.setYear(res.getString("year"));
 					emp.setTime(res.getString("time"));
+					emp.setUpdate_datetime(res.getString("update_datetime"));
 					empList.add(emp);
 				}
 			}
@@ -106,7 +109,7 @@ public class UserDAO {
 	public EmployeeBean getEmployeeById(String employeeId) throws SQLException, ClassNotFoundException {
 		String sql = "SELECT e.employee_id AS 'employee_id', p.position_name AS 'position_name', "
 				+ "s.section_name AS 'section_name', e.name AS 'name', e.gender AS 'gender', "
-				+ "e.age AS 'age', e.year AS 'year', e.time AS 'time' , e.password AS 'password'"
+				+ "e.age AS 'age', e.year AS 'year', e.time AS 'time' , e.password AS 'password', e.update_datetime AS 'update_datetime'"
 				+ "FROM employee e, posi p, section s "
 				+ "WHERE e.position_id = p.position_id AND e.section_id = s.section_id AND e.employee_id = ?";
 		EmployeeBean emp = null;
@@ -126,6 +129,7 @@ public class UserDAO {
 					emp.setYear(res.getString("year"));
 					emp.setTime(res.getString("time"));
 					emp.setPassword(res.getString("password"));
+					emp.setUpdate_datetime(res.getString("update_datetime"));
 				}
 			}
 		}
@@ -136,7 +140,7 @@ public class UserDAO {
 	public void updateEmployee(EmployeeBean emp) throws SQLException, ClassNotFoundException {
 		String sql = "UPDATE employee SET position_id = (SELECT position_id FROM posi WHERE position_name = ?), "
 				+ "section_id = (SELECT section_id FROM section WHERE section_name = ?), "
-				+ "name = ?, gender = ?, age = ?, year = ?, time = ? ,password = ? WHERE employee_id = ?";
+				+ "name = ?, gender = ?, age = ?, year = ?, time = ? ,password = ?, update_datetime = CURRENT_TIMESTAMP WHERE employee_id = ?";
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 			pstmt.setString(1, emp.getPosition_name());

@@ -28,6 +28,9 @@ public class UserListServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	
+		// リクエストのエンコーディング方式を指定
+		request.setCharacterEncoding("UTF-8");
 
         String name = request.getParameter("name");
         String position = request.getParameter("position");

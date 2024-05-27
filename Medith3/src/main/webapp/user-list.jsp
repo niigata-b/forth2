@@ -35,7 +35,7 @@ th {
 	<form method="post" action="userlist">
 		<p>
 			名前: <input type="text" name="name"> 役職: <select
-				name="position">
+				name="position_name">
 				<option value="">選択してください</option>
 				<option value="院長">院長</option>
 				<option value="副院長">副院長</option>
@@ -50,7 +50,7 @@ th {
 				<option value="看護師">看護師</option>
 				<option value="医師">医師</option>
 				<option value="臨床検査技師">臨床検査技師</option>
-			</select> 部署: <select name="section">
+			</select> 部署: <select name="section_name">
 				<option value="">選択してください</option>
 				<option value="内科">内科</option>
 				<option value="外科">外科</option>
@@ -65,14 +65,15 @@ th {
 				<option value="臨床検査科">臨床検査科</option>
 			</select>
 			<button type="submit">検索</button>
+			<input type="submit" value="クリア">
 		</p>
 	</form>
 
 	<%
-    List<EmployeeBean> empList = (List<EmployeeBean>) request.getAttribute("empList");
+	List<EmployeeBean> empList = (List<EmployeeBean>) request.getAttribute("empList");
 
-    if (empList != null && !empList.isEmpty()) {
-    %>
+	if (empList != null && !empList.isEmpty()) {
+	%>
 	<div class="table-wrapper">
 		<table>
 			<tr>
@@ -84,47 +85,52 @@ th {
 				<th>年齢</th>
 				<th>勤続年数</th>
 				<th>勤続時間帯</th>
+				<th>更新時間</th>
 				<th>操作</th>
 			</tr>
 			<%
-            for (EmployeeBean emp : empList) {
-            %>
+			for (EmployeeBean emp : empList) {
+			%>
 			<tr>
-				<td><%= emp.getEmployee_id() %></td>
-				<td><%= emp.getPosition_name() %></td>
-				<td><%= emp.getSection_name() %></td>
-				<td><%= emp.getName() %></td>
-				<td><%= emp.getGender() %></td>
-				<td><%= emp.getAge() %></td>
-				<td><%= emp.getYear() %></td>
-				<td><%= emp.getTime() %></td>
+				<td><%=emp.getEmployee_id()%></td>
+				<td><%=emp.getPosition_name()%></td>
+				<td><%=emp.getSection_name()%></td>
+				<td><%=emp.getName()%></td>
+				<td><%=emp.getGender()%></td>
+				<td><%=emp.getAge()%></td>
+				<td><%=emp.getYear()%></td>
+				<td><%=emp.getTime()%></td>
+				<td><%=emp.getUpdate_datetime()%></td>
+
 				<td>
 					<form action="UpdateEmployeeServlet" method="post"
 						style="display: inline;">
 						<input type="hidden" name="employee_id"
-							value="<%= emp.getEmployee_id() %>"> <input type="submit"
+							value="<%=emp.getEmployee_id()%>"> <input type="submit"
 							value="変更">
 					</form>
 					<form action="DeleteEmployeeConfirmServlet" method="post"
 						style="display: inline;">
 						<input type="hidden" name="employee_id"
-							value="<%= emp.getEmployee_id() %>"> <input type="submit"
+							value="<%=emp.getEmployee_id()%>"> <input type="submit"
 							value="削除">
 					</form>
 				</td>
 			</tr>
 			<%
-            }
-            %>
+			}
+			%>
 		</table>
 	</div>
 	<%
-    } else {
-    %>
+	} else {
+	%>
 	<p>従業員情報がありません。</p>
 	<%
-    }
-    %>
-	<a href="menu-servlet">メニューに戻る</a>
+	}
+	%>
+	<form action="boardlist" method="POST">
+		<input type="submit" value="メニュー表示">
+	</form>
 </body>
 </html>

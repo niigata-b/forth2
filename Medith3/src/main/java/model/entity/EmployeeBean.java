@@ -84,8 +84,8 @@ public class EmployeeBean {
 		return update_datetime;
 	}
 
-	public void setUpdate_datetime(String update_datetime) {
-		this.update_datetime = update_datetime;
+	public void setUpdate_datetime(String timestamp) {
+		this.update_datetime = timestamp;
 	}
 
 	public String getPosition_name() {
