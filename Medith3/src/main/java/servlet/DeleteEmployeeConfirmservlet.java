@@ -22,7 +22,7 @@ public class DeleteEmployeeConfirmservlet extends HttpServlet {
         try {
             EmployeeBean emp = userDao.getEmployeeById(employeeId);
             request.setAttribute("employee", emp);
-            request.getRequestDispatcher("delete-confirmation.jsp").forward(request, response);
+            request.getRequestDispatcher("delete-confirm.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             response.sendRedirect("error.jsp");

@@ -24,7 +24,7 @@
     <p>勤続年数: <%= emp.getYear() %></p>
     <p>勤続時間帯: <%= emp.getTime() %></p>
 
-    <form action="DeleteEmployeeConfirmServlet" method="post">
+    <form action="deleteemployeefservlet" method="post">
         <input type="hidden" name="employee_id" value="<%= emp.getEmployee_id() %>">
         <input type="submit" value="削除">
     </form>
