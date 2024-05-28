@@ -40,5 +40,5 @@ public class LoginServlet extends HttpServlet {
             e.printStackTrace();
             response.sendRedirect("login-failure.html");
         }
-    }
+     }
 }
