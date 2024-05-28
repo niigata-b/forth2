@@ -32,9 +32,6 @@
 	
 	<h2>掲示板</h2>
 	
-	<form action="BoardDetailServlet" method="post">
-		<input type="text" name="title">
-	</form>
 	
 	<form action="board-write.jsp" method="post">
 		<input type="submit" value="新規書き込み">
