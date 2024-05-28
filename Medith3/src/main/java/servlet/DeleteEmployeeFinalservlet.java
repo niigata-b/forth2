@@ -26,7 +26,7 @@ public class DeleteEmployeeFinalservlet extends HttpServlet {
             request.getRequestDispatcher("delete-complete.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+          	response.sendRedirect("delete-error.jsp");
         }
     }
 

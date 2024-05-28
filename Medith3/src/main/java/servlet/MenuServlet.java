@@ -9,11 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.dao.BoardDAO;
 import model.entity.BoardBean;
-import model.entity.EmployeeBean;
 
 @WebServlet("/menu-servlet")
 public class MenuServlet extends HttpServlet {
@@ -22,9 +20,7 @@ public class MenuServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		HttpSession session = request.getSession();
-		EmployeeBean emp = (EmployeeBean) session.getAttribute("employee");
+		
 		List<BoardBean> boardList = null;
 		BoardDAO boardDao = new BoardDAO();
 
