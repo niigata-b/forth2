@@ -61,4 +61,21 @@ public class BoardDAO {
 		}
 		return board;
 	}
+	
+	public void insert(BoardBean board) throws SQLException,ClassNotFoundException {
+		
+		String sql = "INSERT INTO board (employee_id,content,title,update_datetime) VALUES (?,?,?,CURRENT_TIMESTAMP)";
+		
+		
+		try(Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			
+			//プレースホルダへの値の設定
+			pstmt.setString(1, board.getEmployee_id());
+			pstmt.setString(2, board.getContent());
+			pstmt.setString(3, board.getTitle());
+			pstmt.executeUpdate();
+		}
+		
+	}
 }

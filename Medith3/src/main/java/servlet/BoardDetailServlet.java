@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -44,14 +43,16 @@ public class BoardDetailServlet extends HttpServlet {
 
 			// リクエストスコープへの属性の設定
 			request.setAttribute("board", board);
+			// リクエストの転送
+			RequestDispatcher rd = request.getRequestDispatcher("board-detail.jsp");
+			rd.forward(request, response);
 
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
+			response.sendRedirect("error.jsp");
 		}
 
-		// リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("board-detail.jsp");
-		rd.forward(request, response);
+		
 	}
 
 	/**

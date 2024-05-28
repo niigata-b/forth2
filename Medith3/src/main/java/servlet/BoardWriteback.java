@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import model.entity.BoardBean;
 
 /**
- * Servlet implementation class BoardWriteComplete
+ * Servlet implementation class BoardWriteback
  */
-@WebServlet("/boardwrite")
-public class BoardWriteServlet extends HttpServlet {
+@WebServlet("/boardwriteback")
+public class BoardWriteback extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardWriteServlet() {
+    public BoardWriteback() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,7 +37,7 @@ public class BoardWriteServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
 		
 		String employee_id = request.getParameter("employee_id");
 		String content = request.getParameter("content");
@@ -51,7 +51,7 @@ public class BoardWriteServlet extends HttpServlet {
 		
 		try {
 			request.setAttribute("board", board);
-			request.getRequestDispatcher("board-write-confirm.jsp").forward(request, response);
+			request.getRequestDispatcher("board-write.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.sendRedirect("error.jsp");

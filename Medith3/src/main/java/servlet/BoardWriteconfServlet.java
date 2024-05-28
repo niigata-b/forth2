@@ -8,19 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.dao.BoardDAO;
 import model.entity.BoardBean;
 
 /**
- * Servlet implementation class BoardWriteComplete
+ * Servlet implementation class BoardWriteServlet
  */
-@WebServlet("/boardwrite")
-public class BoardWriteServlet extends HttpServlet {
+@WebServlet("/boardwriteconf")
+public class BoardWriteconfServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BoardWriteServlet() {
+    public BoardWriteconfServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -48,10 +49,13 @@ public class BoardWriteServlet extends HttpServlet {
 		board.setEmployee_id(employee_id);
 		board.setContent(content);
 		board.setTitle(title);
+		BoardDAO boardDao = new BoardDAO();
 		
 		try {
+			boardDao.insert(board);
 			request.setAttribute("board", board);
-			request.getRequestDispatcher("board-write-confirm.jsp").forward(request, response);
+			/*response.sendRedirect("board-write-confirm.jsp");*/
+	         request.getRequestDispatcher("board-write-complete.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.sendRedirect("error.jsp");
