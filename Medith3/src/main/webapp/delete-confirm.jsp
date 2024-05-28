@@ -28,6 +28,7 @@
         <input type="hidden" name="employee_id" value="<%= emp.getEmployee_id() %>">
         <input type="submit" value="削除">
     </form>
+    
     <form action="userlist" method="post">
         <button type="submit">キャンセル</button>
     </form>

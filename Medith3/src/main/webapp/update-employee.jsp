@@ -125,10 +125,12 @@ body {
 		<p>
 			<input type="hidden" name="update_datetime"
 				value="<%=emp.getUpdate_datetime() %>">
-
-
 		</p>
 	</form>
+	<form action="userlist" method="post">
+        <button type="submit">キャンセル</button>
+    </form>
+	
 	<%
     } else {
     %>
