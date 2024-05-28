@@ -1,29 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
 <meta charset="UTF-8">
-<title>ログイン画面</title>
-	<style>
-	.example2{
-    text-align: center;
-}			
-.example2 form {
-	
-	display: inline-block;
-	margin: 0 10px;	
-}
-</style>
+
+<head>
+	<title>ログイン</title>
 </head>
+
 <body>
-	<div class="example2">
-	
-	<h1>ログイン画面</h1>
-	<form action="loginservlet" method="POST">
-		従業員ID:<input type="text" name="employee_id"><br><br>
-		パスワード:<input type="password" name="password"><br><br>
+	<h2>ログイン</h2>
+	<form action="login" method="post">
+		従業員ID: <input type="text" name="employee_id" required><br>
+		パスワード: <input type="password" name="password" required><br>
 		<input type="submit" value="ログイン">
 	</form>
-	
-	</div>
 </body>
+
 </html>

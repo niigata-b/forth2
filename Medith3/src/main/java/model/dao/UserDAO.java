@@ -10,24 +10,31 @@ import java.util.List;
 import model.entity.EmployeeBean;
 
 public class UserDAO {
-public boolean loginCheck(String employeeId,String password)throws ClassNotFoundException,SQLException{
-		
-		String spl = "SELECT * FROM employee WHERE employee_id = ? AND password";
-		
-		try(Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(spl)){
-			
-			pstmt.setString(1, employeeId);
-			pstmt.setString(2, password);
-			
-			ResultSet res = pstmt.executeQuery();
-			
-			if(res.next()) {
-				return true;
-			}	
-		}
-		return false;
-	}
+   
+	public EmployeeBean login(String employeeId, String password) throws ClassNotFoundException, SQLException {
+        String sql = "SELECT * FROM employee WHERE employee_id = ? AND password = ?";
+        try (Connection con = ConnectionManager.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(sql)) {
+            pstmt.setString(1, employeeId);
+            pstmt.setString(2, password);
+            try (ResultSet res = pstmt.executeQuery()) {
+                if (res.next()) {
+                    EmployeeBean emp = new EmployeeBean();
+                    emp.setEmployee_id(res.getString("employee_id"));
+                    emp.setPosition_id(res.getString("position_id"));
+                    emp.setSection_id(res.getString("section_id"));
+                    emp.setName(res.getString("name"));
+                    emp.setGender(res.getString("gender"));
+                    emp.setAge(res.getInt("age"));
+                    emp.setYear(res.getString("year"));
+                    emp.setTime(res.getString("time"));
+                    emp.setUpdate_datetime(res.getString("update_datetime"));
+                    return emp;
+                }
+            }
+        }
+        return null;
+    }
 
 	public List<EmployeeBean> selectAll() throws ClassNotFoundException, SQLException {
 		List<EmployeeBean> empList = new ArrayList<>();
@@ -63,7 +70,7 @@ public boolean loginCheck(String employeeId,String password)throws ClassNotFound
 	public List<EmployeeBean> searchByCriteria(String name, String position, String section)
 			throws SQLException, ClassNotFoundException {
 		List<EmployeeBean> empList = new ArrayList<>();
-		
+
 		StringBuilder sql = new StringBuilder(
 				"SELECT e.employee_id AS 'employee_id', p.position_name AS 'position_name', "
 						+ "s.section_name AS 'section_name', e.name AS 'name', e.gender AS 'gender', "
@@ -173,6 +180,5 @@ public boolean loginCheck(String employeeId,String password)throws ClassNotFound
 			pstmt.executeUpdate();
 		}
 	}
-
 
 }
