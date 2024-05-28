@@ -51,11 +51,9 @@
             <input type="hidden" name="password" value="<%= emp.getPassword() %>">
         </p>
         <p>
-            <input type="submit" value="変更確定">
+            <input type="submit" value="登録確定">
         </p>
 <form action="EmployeeRegistrationServlet" method="post">
-
-<input type="submit" value="確定">
 
 <input type="submit" value="戻る">
 </form>

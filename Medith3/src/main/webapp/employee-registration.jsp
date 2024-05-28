@@ -63,38 +63,37 @@
 
 <p>
 部署: 
-<select name="section_name">
-<option value="外科">外科</option>
-<option value="内科">内科</option>
-<option value="救急科">救急科</option>
-<option value="産婦人科">産婦人科</option>
-<option value="眼科">眼科</option>
-<option value="小児科">小児科</option>
-<option value="皮膚科">皮膚科</option>
-<option value="看護部">看護部</option>
-<option value="予防医療センター">予防医療センター</option>
-<option value="薬剤部">薬剤部</option>
-<option value="臨床検査科">臨床検査科</option>
+<select name="section_id">
+<option value="B001">外科</option>
+<option value="B002">内科</option>
+<option value="B003">救急科</option>
+<option value="B004">産婦人科</option>
+<option value="B005">眼科</option>
+<option value="B006">小児科</option>
+<option value="B007">皮膚科</option>
+<option value="B008">看護部</option>
+<option value="B009">予防医療センター</option>
+<option value="B010">薬剤部</option>
+<option value="B011">臨床検査科</option>
 </select></p>
 
 
 <p>
 所属: 
-<select name="position_name">
-<option value="院長">院長</option>
-<option value="副院長">副院長</option>
-<option value="部門長">部門長</option>
-<option value="事務部長">事務部長</option>
-<option value="看護部長">看護部長</option>
-<option value="医長">医長</option>
-<option value="部長">部長</option>
-<option value="課長">課長</option>
-<option value="室長">室長</option>
-<option value="主任">主任</option>
-<option value="センター長">センター長</option>
-<option value="看護師">看護師</option>
-<option value="医師">医師</option>
-<option value="臨床検査技師">臨床検査技師</option>
+<select name="position_id">
+<option value="Y001">院長</option>
+<option value="Y002">副院長</option>
+<option value="Y003">部門長</option>
+<option value="Y004">事務部長</option>
+<option value="Y005">医長</option>
+<option value="Y006">部長</option>
+<option value="Y007">課長</option>
+<option value="Y008">室長</option>
+<option value="Y009">主任</option>
+<option value="Y010">センター長</option>
+<option value="Y011">看護師</option>
+<option value="Y012">医師</option>
+<option value="Y013">臨床検査技師</option>
 </select></p>
 
 <p>

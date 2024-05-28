@@ -26,8 +26,8 @@ public class CompleteRegistrationEmployeeservlet extends HttpServlet {
 		int age = Integer.parseInt(request.getParameter("age"));
 		String year = request.getParameter("year");
 		String time = request.getParameter("time");
-		String section_Name = request.getParameter("section_name");
-		String position_Name = request.getParameter("position_name");
+		String section_Id = request.getParameter("section_id");
+		String position_Id = request.getParameter("position_id");
 		String password = request.getParameter("password");
 
 		EmployeeBean emp = new EmployeeBean();
@@ -37,8 +37,8 @@ public class CompleteRegistrationEmployeeservlet extends HttpServlet {
 		emp.setAge(age);
 		emp.setYear(year);
 		emp.setTime(time);
-		emp.setSection_name(section_Name);
-		emp.setPosition_name(position_Name);
+		emp.setSection_id(section_Id);
+		emp.setPosition_id(position_Id);
 		emp.setPassword(password);
 
 		UserDAO userDao = new UserDAO();
