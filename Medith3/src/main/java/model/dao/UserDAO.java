@@ -162,6 +162,23 @@ public class UserDAO {
 		return emp;
 	}
 
+	public void registrationEmployee(EmployeeBean emp) throws SQLException, ClassNotFoundException {
+		String sql = "INSERT INTO employee (employee_id, name, gender, age, year, time, section_name, position_name, password) VALUES (?,?,?,?,?,?,?,?,?)";
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			pstmt.setString(1, emp.getEmployee_id());
+			pstmt.setString(2, emp.getName());
+			pstmt.setString(3, emp.getGender() );
+			pstmt.setInt(4, emp.getAge());
+			pstmt.setString(5, emp.getYear());
+			pstmt.setString(6, emp.getTime());
+			pstmt.setString(7, emp.getSection_name());
+			pstmt.setString(8, emp.getPosition_name());
+			pstmt.setString(9, emp.getPassword());
+			pstmt.executeUpdate();
+		}
+	}
+	
 	public void updateEmployee(EmployeeBean emp) throws SQLException, ClassNotFoundException {
 		String sql = "UPDATE employee SET position_id = (SELECT position_id FROM posi WHERE position_name = ?), "
 				+ "section_id = (SELECT section_id FROM section WHERE section_name = ?), "
