@@ -8,8 +8,10 @@
 <html>
 <head>
 <title>従業員一覧</title>
+<!--overflow-yは、縦にはみ出た部分の表示方法を指定する。（autoはブラウザー依存）（一般的にはスクロール)-->
+
 <style>
-.table-wrapper {
+.table {
     overflow-y: auto;
     max-height: 500px;
 }
@@ -52,6 +54,7 @@ th {
                 <option value="医師">医師</option>
                 <option value="臨床検査技師">臨床検査技師</option>
             </select> 部署: <select name="section_name">
+            
                 <option value="">選択してください</option>
                 <option value="内科">内科</option>
                 <option value="外科">外科</option>
@@ -69,7 +72,7 @@ th {
             <input type="submit" value="クリア">
         </p>
     </form>
-
+	<!--  -->
     <%
         EmployeeBean empSession = (EmployeeBean) session.getAttribute("employee");
         List<EmployeeBean> empList = (List<EmployeeBean>) request.getAttribute("empList");
@@ -77,7 +80,7 @@ th {
 
         if (empList != null && !empList.isEmpty()) {
     %>
-    <div class="table-wrapper">
+    <div class="table">
         <table>
             <tr>
                 <th>従業員ID</th>
@@ -137,8 +140,6 @@ th {
     <% } %>
 
     <form action="boardlist" method="POST">
-     <input type="hidden" name="employee_id" value="<%= empSession.getEmployee_id() %>">
-     <input type="hidden" name="password" value="<%= empSession.getPassword() %>">
         <input type="submit" value="メニュー表示">
     </form>
 

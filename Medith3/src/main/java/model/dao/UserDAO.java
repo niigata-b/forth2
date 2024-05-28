@@ -10,6 +10,27 @@ import java.util.List;
 import model.entity.EmployeeBean;
 
 public class UserDAO {
+		
+    public void addEmployee(EmployeeBean employee) throws SQLException, ClassNotFoundException {
+        String sql = "INSERT INTO employee (employee_id, position_id, section_id, name, gender, age, year, time, password, update_datetime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)";
+
+        try (Connection con = ConnectionManager.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+            pstmt.setString(1, employee.getEmployee_id());
+            pstmt.setString(2, employee.getPosition_id());
+            pstmt.setString(3, employee.getSection_id());
+            pstmt.setString(4, employee.getName());
+            pstmt.setString(5, employee.getGender());
+            pstmt.setInt(6, employee.getAge());
+            pstmt.setString(7, employee.getYear());
+            pstmt.setString(8, employee.getTime());
+            pstmt.setString(9, employee.getPassword());
+
+            pstmt.executeUpdate();
+        }
+    }
+
    
 	public EmployeeBean login(String employeeId, String password) throws ClassNotFoundException, SQLException {
         String sql = "SELECT * FROM employee WHERE employee_id = ? AND password = ?";

@@ -30,9 +30,15 @@ public class LoginServlet extends HttpServlet {
         try {
             EmployeeBean emp = userDao.login(employeeId, password);
             if (emp != null) {
+            	
+            	// セッションを呼び出しておき
                 HttpSession session = request.getSession();
+                
+                // employeeIdなどを保存する
                 session.setAttribute("employee", emp);
+                
                 response.sendRedirect("menu-servlet");
+                
             } else {
                 response.sendRedirect("login-failure.html");
             }
