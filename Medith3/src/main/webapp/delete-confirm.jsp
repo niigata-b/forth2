@@ -9,7 +9,9 @@
 </head>
 <body>
     <h2>削除確認</h2>
-
+	
+	<!--リクエストスコープに格納したデータを、持ってくる。  -->
+	<!--取得したデータがなかったら、従業員情報がありませんを表示 -->
     <%
     EmployeeBean emp = (EmployeeBean) request.getAttribute("employee");
     if (emp != null) {
@@ -24,6 +26,7 @@
     <p>勤続年数: <%= emp.getYear() %></p>
     <p>勤続時間帯: <%= emp.getTime() %></p>
 
+	<!-- 従業員IDを使うので、hiddenで取っておく -->
     <form action="deleteemployeefservlet" method="post">
         <input type="hidden" name="employee_id" value="<%= emp.getEmployee_id() %>">
         <input type="submit" value="削除">

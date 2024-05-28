@@ -20,9 +20,15 @@ public class DeleteEmployeeConfirmservlet extends HttpServlet {
         String employeeId = request.getParameter("employee_id");
         UserDAO userDao = new UserDAO();
         try {
+        	// 消去する従業員IDを引数に、従業員～更新日時までのデータを取得してくる
             EmployeeBean emp = userDao.getEmployeeById(employeeId);
+           
+            // リクエストスコープに↑で取ったデータを格納する
             request.setAttribute("employee", emp);
+            
+            // delete-confirm.jsp(削除確認画面)に飛ばす
             request.getRequestDispatcher("delete-confirm.jsp").forward(request, response);
+            
         } catch (Exception e) {
             e.printStackTrace();
             response.sendRedirect("error.jsp");

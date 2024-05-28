@@ -10,6 +10,7 @@
 <body>
     <h2>削除完了</h2>
 
+	<!--リクエストスコープのデータを持ってくる(nullは略)  -->
     <%
     EmployeeBean emp = (EmployeeBean) request.getAttribute("employee");
     if (emp != null) {

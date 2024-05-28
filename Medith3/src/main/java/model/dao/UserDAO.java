@@ -153,7 +153,8 @@ public class UserDAO {
 			pstmt.executeUpdate();
 		}
 	}
-
+	
+	// 削除と変更で、使用するデータを取得するためのメソッド(従業員IDが主体なのは、主キーで値を特定できるため)
 	public EmployeeBean getEmployeeById(String employeeId) throws SQLException, ClassNotFoundException {
 		String sql = "SELECT e.employee_id AS 'employee_id', p.position_name AS 'position_name', "
 				+ "s.section_name AS 'section_name', e.name AS 'name', e.gender AS 'gender', "

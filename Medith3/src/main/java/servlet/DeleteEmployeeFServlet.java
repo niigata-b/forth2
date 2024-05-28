@@ -41,9 +41,15 @@ public class DeleteEmployeeFServlet extends HttpServlet {
 		String employeeId = request.getParameter("employee_id");
         UserDAO userDao = new UserDAO();
         try {
+        	// UserDAOを呼び出して、メソッドを使って削除するデータの情報を取る
             EmployeeBean emp = userDao.getEmployeeById(employeeId);
+            
+            // リクエストスコープに取ったデータを格納する。
             request.setAttribute("employee", emp);
+            
+            // 本当に削除していいか画面に飛ばす
             request.getRequestDispatcher("delete-confirmation.jsp").forward(request, response);
+        
         } catch (Exception e) {
             e.printStackTrace();
             response.sendRedirect("error.jsp");
