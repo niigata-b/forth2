@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="model.entity.EmployeeBean"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +13,6 @@
 
  <%
     EmployeeBean emp = (EmployeeBean) request.getAttribute("employee");
-    if (emp != null) {
     %>
     <form action="CompleteRegistrationEmployeeservlett" method="post">
         <p>
@@ -39,15 +40,14 @@
             <input type="hidden" name="time" value="<%= emp.getTime() %>">
         </p>
          <p>
-            部署名: <%= emp.getSection_name() %>
-            <input type="hidden" name="section_name" value="<%= emp.getSection_name() %>">
+            部署名: <%= emp.getSection_id() %>
+            <input type="hidden" name="section_id" value="<%= emp.getSection_id() %>">
         </p>
         <p>
-            役職名: <%= emp.getPosition_name() %>
-            <input type="hidden" name="position_name" value="<%= emp.getPosition_name() %>">
+            役職名: <%= emp.getPosition_id() %>
+            <input type="hidden" name="position_id" value="<%= emp.getPosition_id() %>">
         </p>
         <p>
-            パスワード： <%= emp.getPassword() %>
             <input type="hidden" name="password" value="<%= emp.getPassword() %>">
         </p>
         <p>
