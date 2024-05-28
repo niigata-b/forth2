@@ -31,39 +31,56 @@ th, td {
 	text-align: left;
 }
 
-form {
+.s1 form {
+	
 	display: inline-block;
-	margin: 0 10px;
-	padding: 30px;
+	margin: 0 10px;	
 }
+	
+.d3{
+		font-size:300%;
+		border-bottom:10px dashed #DEFFCA;
+	}
+	
+/*.d4 {
+    	
+   		margin-left:1150px;	
+	}*/
+	
+.d5 {
+		width: 150px;
+    	padding: 10px;
+    	padding: 10px;
+    	font-size: 100%;	
+	}
 </style>
 </head>
 <body>
 	<%
 	EmployeeBean emp = (EmployeeBean) session.getAttribute("employee");
 	%>
-	<div class="botan">
+	
+	<h2><div class="d3">掲示板</div></h2>
+	<div class="s1">
 		<form action="userlist" method="post">
-			<input type="submit" value="従業員一覧">
+			<input type="submit" value="従業員一覧"class="d5">
 		</form>
 
 		<form action="logout" method="post">
-			<input type="submit" value="ログアウト">
-		</form>
-		<br>
+			<input type="submit" value="ログアウト"class="d5">
+		</form>		
 	</div>
-
-	<h2>掲示板</h2>
-	</form>
+	
 	<form action="BoardDetailServlet" method="post">
 		<input type="hidden" name="title">
 	</form>
-
+	
 	<form action="board-write.jsp" method="post">
-		<input type="submit" value="新規書き込み">　　　　　　　　　　　　　　　　　
+		<div align="right"><input type="submit" value="新規書き込み"class="d5"></div>
 	</form>
-	<br>
-
+	
+	
+	
 	<%
 	List<BoardBean> boardList = (List<BoardBean>) request.getAttribute("boardList");
 	%>
