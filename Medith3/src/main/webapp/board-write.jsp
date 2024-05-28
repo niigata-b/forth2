@@ -35,7 +35,7 @@
 	<br>
 	<table border="1">
 		<tr><th>タイトル</th></tr>
-		<tr><td><input type="text" name="title"></td></tr>
+		<tr><td><input type="text" name="title" required></td></tr>
 		<tr><th>内容</th></tr>
 		<tr><td><input type="text" size="200" name="content"></td></tr>
 	</table>

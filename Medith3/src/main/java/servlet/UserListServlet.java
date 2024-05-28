@@ -33,8 +33,8 @@ public class UserListServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
         String name = request.getParameter("name");
-        String position = request.getParameter("position");
-        String section = request.getParameter("section");
+        String position = request.getParameter("position_name");
+        String section = request.getParameter("section_name");
 
         List<EmployeeBean> empList = null;
         UserDAO userDao = new UserDAO();

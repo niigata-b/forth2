@@ -21,71 +21,75 @@ body {
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
+	width: 100%;
+	border-collapse: collapse;
 }
+
 th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
+	border: 1px solid black;
+	padding: 8px;
+	text-align: left;
+}
+
+form {
+	display: inline-block;
+	margin: 0 10px;
+	padding: 30px;
 }
 </style>
 </head>
 <body>
 	<%
-    EmployeeBean emp = (EmployeeBean) session.getAttribute("employee");
-%>
-	<form action="userlist" method="post">
-		<input type="submit" value="従業員一覧">
-	</form>
+	EmployeeBean emp = (EmployeeBean) session.getAttribute("employee");
+	%>
+	<div class="botan">
+		<form action="userlist" method="post">
+			<input type="submit" value="従業員一覧">
+		</form>
 
-	<form action="logout" method="post">
-		<input type="submit" value="ログアウト">
-	</form><br>
-	
-	<h2>掲示板</h2>
-	
-	
-	</form>
-	<br>
+		<form action="logout" method="post">
+			<input type="submit" value="ログアウト">
+		</form>
+		<br>
+	</div>
 
 	<h2>掲示板</h2>
-
+	</form>
 	<form action="BoardDetailServlet" method="post">
 		<input type="hidden" name="title">
 	</form>
 
 	<form action="board-write.jsp" method="post">
-		<input type="submit" value="新規書き込み">
+		<input type="submit" value="新規書き込み">　　　　　　　　　　　　　　　　　
 	</form>
 	<br>
 
 	<%
-	 	List<BoardBean> boardList = (List<BoardBean>) request.getAttribute("boardList");
+	List<BoardBean> boardList = (List<BoardBean>) request.getAttribute("boardList");
 	%>
-	<div class ="table">
-	<table>
-		<tr>
-			<th>No</th>
-			<th>タイトル</th>
-			<th>内容</th>
-			<th>更新日時</th>
-		</tr>
-		<%
+	<div class="table">
+		<table>
+			<tr>
+				<th>No</th>
+				<th>タイトル</th>
+				<th>内容</th>
+				<th>更新日時</th>
+			</tr>
+			<%
 			if (boardList != null) {
-            	for (BoardBean board : boardList) {
-        %>
-		<tr>
-			<td><%= board.getBoard_id() %></td>
-			<td><a href="boarddetail?board_id=<%= board.getBoard_id() %>"><%= board.getTitle() %></a></td>
-			<td><%= board.getContent() %></td>
-			<td><%= board.getUpdate_datetime() %></td>
-		</tr>
-		<%
-				}
+				for (BoardBean board : boardList) {
+			%>
+			<tr>
+				<td><%=board.getBoard_id()%></td>
+				<td><a href="boarddetail?board_id=<%=board.getBoard_id()%>"><%=board.getTitle()%></a></td>
+				<td><%=board.getContent()%></td>
+				<td><%=board.getUpdate_datetime()%></td>
+			</tr>
+			<%
 			}
-		%>
-	</table>
+			}
+			%>
+		</table>
 	</div>
 </body>
 </html>

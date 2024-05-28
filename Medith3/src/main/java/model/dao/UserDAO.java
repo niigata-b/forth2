@@ -64,7 +64,7 @@ public class UserDAO {
 				+ "s.section_name AS 'section_name', e.name AS 'name', e.gender AS 'gender', "
 				+ "e.age AS 'age', e.year AS 'year', e.time AS 'time', e.update_datetime AS 'update_datetime'"
 				+ "FROM employee e, posi p, section s "
-				+ "WHERE e.position_id = p.position_id AND e.section_id = s.section_id";
+				+ "WHERE e.position_id = p.position_id AND e.section_id = s.section_id ORDER BY employee_id";
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);
@@ -87,6 +87,8 @@ public class UserDAO {
 
 		return empList;
 	}
+	
+	
 
 	public List<EmployeeBean> searchByCriteria(String name, String position, String section)
 			throws SQLException, ClassNotFoundException {
@@ -182,7 +184,6 @@ public class UserDAO {
 
 		return emp;
 	}
-
 	public void registrationEmployee(EmployeeBean emp) throws SQLException, ClassNotFoundException {
 		String sql = "INSERT INTO employee (employee_id, name, gender, age, year, time, section_id, position_id, password,update_datetime) VALUES (?,?,?,?,?,?,?,?,?,'CURRENT_TIMESTAMP')";
 		try (Connection con = ConnectionManager.getConnection();
