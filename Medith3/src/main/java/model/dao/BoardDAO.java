@@ -78,4 +78,38 @@ public class BoardDAO {
 		}
 		
 	}
+	
+	public BoardBean getBoardById(String board_id) throws SQLException, ClassNotFoundException {
+		String sql = "SELECT b.board_id AS 'board_id', b.employee_id AS 'employee_id', "
+				+ "b.update_datetime AS 'update_datetime', b.title AS 'title', b.content AS 'content'"
+				+ "FROM board b "
+				+ "WHERE b.board_id = ? ";
+		BoardBean board = null;
+
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			pstmt.setString(1, board_id);
+			try (ResultSet res = pstmt.executeQuery()) {
+				if (res.next()) {
+					board = new BoardBean();
+					board.setBoard_id(res.getString("board_id"));
+					board.setEmployee_id(res.getString("employee_id"));
+					board.setUpdate_datetime(res.getString("update_datetime"));
+					board.setTitle(res.getString("title"));
+					board.setContent(res.getString("content"));
+					
+				}
+			}
+		}
+		return board;
+	}
+	
+	public void deleteBoard(String board_id) throws SQLException, ClassNotFoundException {
+		String sql = "DELETE FROM board WHERE board_id = ?";
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			pstmt.setString(1, board_id);
+			pstmt.executeUpdate();
+		}
+	}
 }
