@@ -32,7 +32,8 @@
 	<h2>従業員登録画面</h2>
 	<form action="EmployeeRegistrationServlet" method="post">
 		<p>
-			従業員ID: <input type="text" name="employee_id" maxlength="5" pattern="^[a-zA-Z0-9]+$" required placeholder="※半角英数で入力">
+		    ※IDは１文字目がE（一般ユーザ）かS（管理者ユーザ）のみで２文字目以降は数字のみ<br>
+			従業員ID: <input type="text" name="employee_id" maxlength="5" pattern="^[ES][0-9]+$" required placeholder="※半角英数で入力">
 		</p>
 
 		<p>

@@ -25,7 +25,18 @@ public class BoardDAO {
 				BoardBean board = new BoardBean();
 				board.setBoard_id(res.getString("board_id"));
 				board.setTitle(res.getString("title"));
-				board.setContent(res.getString("content"));
+			
+				String content = res.getString("content");
+				if(content.length() > 63) {
+					StringBuilder sb = new StringBuilder();
+					sb.append(res.getString("content"));
+					sb.delete(62,content.length());
+					board.setContent(sb.toString());
+				} else {
+					board.setContent(res.getString("content"));
+				}
+				
+					
 				board.setUpdate_datetime(res.getString("update_datetime"));
 				boardList.add(board);
 			}
