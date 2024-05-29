@@ -137,8 +137,8 @@
 		<input type="submit" value="登録">
 	</form>
 
-	<form action="user-list.jsp" method="post">
-		<input type="submit" value="戻る">
-	</form>
+		<form action="userlist" method="post">
+        <button type="submit">戻る</button>
+    </form>
 </body>
 </html>
