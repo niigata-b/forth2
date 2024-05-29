@@ -53,6 +53,13 @@ th, td {
     	padding: 10px;
     	font-size: 100%;	
 	}
+	
+	.f1{
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	}
+	
 </style>
 </head>
 <body>
@@ -75,10 +82,11 @@ th, td {
 		<input type="hidden" name="title">
 	</form>
 	
+	<div class="f1">
 	<form action="logout" method="post">
-		<div align="right"><input type="submit" value="ログアウト"class="d5"></div>
+		<input type="submit" value="ログアウト"class="d5">
 	</form>
-	
+	</div>
 	
 	
 	<%
