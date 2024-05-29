@@ -68,9 +68,12 @@ body {
 			<input type="submit" value="変更確定">
 		</p>
 	</form>
-	<form action="userlist" method="post">
-		<button type="submit">キャンセル</button>
-	</form>
+	
+	<FORM>
+	<INPUT type="button" value="キャンセル" onClick="history.back()">
+	</FORM>
+
+	
 	<%
     } else {
     %>
