@@ -5,17 +5,20 @@
 	.example2{
     text-align: center;
     
-   
 }			
 .example2 form {
 	
 	display: inline-block;
 	margin: 0 10px;	
 	
-	/*width: 600px;
-	height: 500px;
-	border-style: solid;*/
+	width: 400px;
+	height: 300px;
+	border-style: solid;
 }
+.s1{
+	border-bottom:5px dashed #82eeff;
+}
+
 .d1{
 	width:30%;
     min-width: 200px;
@@ -25,11 +28,11 @@
     }
 
 .d2{
-	width:30%;
-    min-width: 200px;
-    max-width: 600px;
-    padding: 10px;
-    font-size: 100%;
+		width: 150px;
+    	padding: 10px;
+    	padding: 10px;
+    	font-size: 100%;
+    
     }
 
 
@@ -42,7 +45,7 @@
 	<div class="example2">
 
 	<form action="login" method="post">
-		<h1>ログイン</h1>
+		<h1><span class="s1">ログイン</span></h1>
 		従業員ID: <input type="text" name="employee_id" required class="d1"><br><br>
 		パスワード: <input type="password" name="password" required class="d1"><br><br>
 		<input type="submit" value="ログインする"class="d2">
