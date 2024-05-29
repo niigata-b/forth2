@@ -96,6 +96,19 @@ html {
 			<label for="password">パスワード:</label>
 			<input type="password" id="input_pass" name="password" maxlength="32" value="<%= emp.getPassword() %>" pattern="^[a-zA-Z0-9]+$" required placeholder="※半角英数で入力">
 			<input type="button" id="buttonPassword" value="表示" onclick="pushHideButton();">
+			<script language="javascript">
+      function pushHideButton() {
+        var txtPass = document.getElementById("input_pass");
+        var btnPass = document.getElementById("buttonPassword");
+        if (txtPass.type === "text") {
+          txtPass.type = "password";
+          btnPass.value = "表示";
+        } else {
+          txtPass.type = "text";
+          btnPass.value = "非表示";
+        }
+      }
+    </script>
 		</p>
 		<p>
 			<input type="submit" value="更新">

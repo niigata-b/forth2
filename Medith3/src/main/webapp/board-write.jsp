@@ -90,7 +90,7 @@
 	
 	
 	<div class="d2">タイトル</div>
-		<input type="text" name="title" maxlength="20" required class="d1"><br><br>
+		<input type="text" name="title" pattern=".*\S+.*" maxlength="20" required class="d1"><br><br>
 		
 	<div class="d2">内容</div>
 	<p><textarea name="content" maxlength="200" cols="90" rows="70"></textarea></p>
