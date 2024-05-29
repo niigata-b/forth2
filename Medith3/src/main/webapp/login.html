@@ -28,13 +28,24 @@
     }
 
 .d2{
-		width: 150px;
-    	padding: 10px;
-    	padding: 10px;
-    	font-size: 100%;
-    
+	width: 150px;
+    padding: 10px;
+    padding: 10px;
+    font-size: 100%;
+ 	/*background-color: blue;
+ 	text-align: center;
+	 padding: 4px;
+ 	color: white;*/
     }
+/*span.hover-sample:hove{
+	color:#BEFDFF;
+}*/
 
+.hover-d3:hover{
+ background-color: violet;
+ color: black;
+ opacity: 0.8;
+}
 
 </style>
 <head>
@@ -47,8 +58,25 @@
 	<form action="login" method="post">
 		<h1><span class="s1">ログイン</span></h1>
 		従業員ID: <input type="text" name="employee_id" required class="d1"><br><br>
-		パスワード: <input type="password" name="password" required class="d1"><br><br>
-		<input type="submit" value="ログインする"class="d2">
+		パスワード: <input type="password" name="password" required class="d1">
+		
+		<input type="button" id="buttonPassword" value="表示" onclick="pushHideButton();">
+			<script language="javascript">
+      function pushHideButton() {
+        var txtPass = document.getElementById("input_pass");
+        var btnPass = document.getElementById("buttonPassword");
+        if (txtPass.type === "text") {
+          txtPass.type = "password";
+          btnPass.value = "表示";
+        } else {
+          txtPass.type = "text";
+          btnPass.value = "非表示";
+        }
+      }
+    </script>
+		
+		<br><br>
+		<class="hover-d3"><input type="submit" value="ログインする"class="d2"></span>
 	</form>
 	
 	</div>
