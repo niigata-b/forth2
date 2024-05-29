@@ -10,7 +10,7 @@
 <body>
 <h2>登録エラー画面</h2>
 
-<p>登録できませんでした。</p>
+<p>その従業員IDはすでに使われています。</p>
 
 
 <input type="submit" value="戻る" onClick="history.back()">
