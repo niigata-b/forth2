@@ -88,63 +88,94 @@ public class UserDAO {
 		return empList;
 	}
 	
-	
+    public List<EmployeeBean> searchByCriteria(String name, String position, String section, String time, String gender, String sort)
+            throws SQLException, ClassNotFoundException {
+        List<EmployeeBean> empList = new ArrayList<>();
 
-	public List<EmployeeBean> searchByCriteria(String name, String position, String section)
-			throws SQLException, ClassNotFoundException {
-		List<EmployeeBean> empList = new ArrayList<>();
+        // SQLの基本文を構築
+        StringBuilder sql = new StringBuilder(
+                "SELECT e.employee_id AS 'employee_id', p.position_name AS 'position_name', "
+                        + "s.section_name AS 'section_name', e.name AS 'name', e.gender AS 'gender', "
+                        + "e.age AS 'age', e.year AS 'year', e.time AS 'time', e.update_datetime AS 'update_datetime' "
+                        + "FROM employee e, posi p, section s "
+                        + "WHERE e.position_id = p.position_id AND e.section_id = s.section_id");
 
-		StringBuilder sql = new StringBuilder(
-				"SELECT e.employee_id AS 'employee_id', p.position_name AS 'position_name', "
-						+ "s.section_name AS 'section_name', e.name AS 'name', e.gender AS 'gender', "
-						+ "e.age AS 'age', e.year AS 'year', e.time AS 'time', e.update_datetime AS 'update_datetime'"
-						+ "FROM employee e, posi p, section s "
-						+ "WHERE e.position_id = p.position_id AND e.section_id = s.section_id");
+        // 検索条件が指定されている場合、それに応じてSQL文を追加
+        if (name != null && !name.isEmpty()) {
+            sql.append(" AND e.name LIKE ?");		// 名前の条件を追加
+        }
+        if (position != null && !position.isEmpty()) {
+            sql.append(" AND p.position_name = ?");	// 役職の条件を追加
+        }
+        if (section != null && !section.isEmpty()) {
+            sql.append(" AND s.section_name = ?");	// 部署の条件を追加
+        }
+        if (time != null && !time.isEmpty()) {
+            sql.append(" AND e.time = ?");			// 勤務時間帯の条件を追加
+        }
+        if (gender != null && !gender.isEmpty()) {
+            sql.append(" AND e.gender = ?");		// 性別の条件を追加
+        }
 
-		if (name != null && !name.isEmpty()) {
-			sql.append(" AND e.name LIKE ?");
-		}
-		if (position != null && !position.isEmpty()) {
-			sql.append(" AND p.position_name = ?");
-		}
-		if (section != null && !section.isEmpty()) {
-			sql.append(" AND s.section_name = ?");
-		}
+        if (sort != null && !sort.isEmpty()) {
+            sql.append(" ORDER BY employee_id " + sort); // ソート順を指定
+        }
 
-		try (Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(sql.toString())) {
-
-			int index = 1;
-			if (name != null && !name.isEmpty()) {
-				pstmt.setString(index++, "%" + name + "%");
-			}
-			if (position != null && !position.isEmpty()) {
-				pstmt.setString(index++, position);
-			}
-			if (section != null && !section.isEmpty()) {
-				pstmt.setString(index++, section);
-			}
-
-			try (ResultSet res = pstmt.executeQuery()) {
-				while (res.next()) {
-					EmployeeBean emp = new EmployeeBean();
-					emp.setEmployee_id(res.getString("employee_id"));
-					emp.setPosition_name(res.getString("position_name"));
-					emp.setSection_name(res.getString("section_name"));
-					emp.setName(res.getString("name"));
-					emp.setGender(res.getString("gender"));
-					emp.setAge(res.getInt("age"));
-					emp.setYear(res.getString("year"));
-					emp.setTime(res.getString("time"));
-					emp.setUpdate_datetime(res.getString("update_datetime"));
-					empList.add(emp);
-				}
-			}
-		}
-
-		return empList;
-	}
-
+        try (Connection con = ConnectionManager.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(sql.toString())) {
+        	
+        	// パラメータのインデックスを初期化
+            int index = 1;
+            
+            // 各条件に応じてPreparedStatementにパラメータを設定
+            if (name != null && !name.isEmpty()) {
+                pstmt.setString(index++, "%" + name + "%");	// 名前のパラメータを設定
+            }
+            if (position != null && !position.isEmpty()) {
+                pstmt.setString(index++, position);			// 役職のパラメータを設定
+            }
+            if (section != null && !section.isEmpty()) {
+                pstmt.setString(index++, section);			// 部署のパラメータを設定
+            }
+            if (time != null && !time.isEmpty()) {
+                pstmt.setString(index++, time);				// 勤務時間帯のパラメータを設定
+            }
+            if (gender != null && !gender.isEmpty()) {
+                pstmt.setString(index++, gender);			// 性別のパラメータを設定
+            }
+	        /* ●↑の処理について
+	         * 
+	           ・pstmt.setString(1,name)的な文があったとします。
+	           ➡indexは↑の文の1に該当します。  
+	           ・name、position、section、time、genderは引数でもらっています。
+	           ➡もらった引数が空文字かnullではなかったときに、pstmt.setStringが実行されます。
+	             実行されるたびにindexは加算されていきます。
+	           
+	           ※nameに関してですが、%(ワイルドカード）が設定されています。
+	           　ここでsetする値らは、SQLに入るため、%を指定することで柔軟な名前検索が可能になります。
+	             */
+            
+            // クエリを実行して結果を取得
+            try (ResultSet res = pstmt.executeQuery()) {
+                while (res.next()) {
+                    EmployeeBean emp = new EmployeeBean();
+                    emp.setEmployee_id(res.getString("employee_id"));
+                    emp.setPosition_name(res.getString("position_name"));
+                    emp.setSection_name(res.getString("section_name"));
+                    emp.setName(res.getString("name"));
+                    emp.setGender(res.getString("gender"));
+                    emp.setAge(res.getInt("age"));
+                    emp.setYear(res.getString("year"));
+                    emp.setTime(res.getString("time"));
+                    emp.setUpdate_datetime(res.getString("update_datetime"));
+                    empList.add(emp);
+                }
+            }
+        }
+        
+        // 結果のリストを返す
+        return empList;
+    }
 	public void deleteEmployee(String employeeId) throws SQLException, ClassNotFoundException {
 		String sql = "DELETE FROM employee WHERE employee_id = ?";
 		try (Connection con = ConnectionManager.getConnection();

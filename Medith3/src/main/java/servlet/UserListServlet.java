@@ -1,3 +1,4 @@
+// UserListServlet.java
 package servlet;
 
 import java.io.IOException;
@@ -17,41 +18,36 @@ import model.entity.EmployeeBean;
 public class UserListServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public UserListServlet() {
-        super();
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        doPost(request, response);
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       
+    	// リクエストスコープから、それぞれの値をもらってくる
     	
-		// リクエストのエンコーディング方式を指定
-		request.setCharacterEncoding("UTF-8");
-
-        String name = request.getParameter("name");
+    	String name = request.getParameter("name");
         String position = request.getParameter("position_name");
         String section = request.getParameter("section_name");
+        String time = request.getParameter("time");
+        String gender = request.getParameter("gender");
+        String sort = request.getParameter("sort");
 
-        List<EmployeeBean> empList = null;
+        // UserDAOのインスタンス生成
         UserDAO userDao = new UserDAO();
-
+        
+        // Listを作成（初期化）
+        List<EmployeeBean> empList = null;
+        
+        //スコープから取得した値で、
         try {
-            if ((name != null && !name.isEmpty()) || (position != null && !position.isEmpty()) || (section != null && !section.isEmpty())) {
-                empList = userDao.searchByCriteria(name, position, section);
-            } else {
-                empList = userDao.selectAll();
-            }
-
-            request.setAttribute("empList", empList);
-            RequestDispatcher rd = request.getRequestDispatcher("user-list.jsp");
-            rd.forward(request, response);
+            empList = userDao.searchByCriteria(name, position, section, time, gender, sort);
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
         }
+
+        request.setAttribute("empList", empList);
+        RequestDispatcher rd = request.getRequestDispatcher("user-list.jsp");
+        rd.forward(request, response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
     }
 }
