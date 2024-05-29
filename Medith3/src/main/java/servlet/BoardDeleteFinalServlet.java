@@ -51,11 +51,11 @@ public class BoardDeleteFinalServlet extends HttpServlet {
             // リクエストスコープに削除したデータを格納する
             request.setAttribute("board", board);
             
-            // delete-complete.jsp(削除完了画面)に遷移する
-            request.getRequestDispatcher("delete-complete.jsp").forward(request, response);
+            // board-delete-complete.jsp(掲示板削除完了画面)に遷移する
+            request.getRequestDispatcher("board-delete-complete.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
-          	response.sendRedirect("delete-error.jsp");
+          	response.sendRedirect("board-delete-error.jsp");
         }
     }
 }

@@ -48,7 +48,7 @@ public class BoardDeleteconfServlet extends HttpServlet {
             request.setAttribute("board", board);
             
             // 本当に削除していいか画面に飛ばす
-            request.getRequestDispatcher("delete-confirmation.jsp").forward(request, response);
+            request.getRequestDispatcher("board-delete-confirmation.jsp").forward(request, response);
         
         } catch (Exception e) {
             e.printStackTrace();
