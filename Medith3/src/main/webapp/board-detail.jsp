@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>掲示板詳細画面</title>
 <style>
+	html {
+	background-color: #f0f8ff;
+	}
 	body {
 		text-align:center
 	}
@@ -28,7 +31,7 @@
 	display: inline-block;
 	margin: 0 10px;	
 
-}
+	}
 	
 	.d2{
     font-size: 100%;
@@ -51,7 +54,7 @@
 </style>
 </head>
 <body>
-<h2>掲示板詳細画面</h2>
+<h2><div class="d3">掲示板詳細画面</div></h2>
 <jsp:useBean id="board" scope="request" class="model.entity.BoardBean"/>
 
 <div class="d2">
@@ -69,8 +72,8 @@
         <input type="hidden" name="title" value="<%= board.getTitle() %>">
         </p></div>
 
-	 <p>
-             
+		<div class="d3">内容</div>
+	 <p>      
         <textarea readonly type="hidden" name="content"><%= board.getContent() %></textarea>
         </p>
 	

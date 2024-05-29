@@ -9,6 +9,9 @@
 <meta charset="UTF-8">
 <title>掲示板新規書き込み入力</title>
 <style>
+	html {
+	background-color: #f0f8ff;
+	}
 	body {
 		text-align:center
 	}
@@ -31,6 +34,8 @@
   	height: 200px; /* 高さを固定 */
   	resize: none;  /* リサイズを無効にする */
   	font-size: 150%;
+  	
+  	whit-space: nomal;
 	}
 	
 	.d1{
@@ -44,7 +49,7 @@
 	
 	.d2{
 	
-    font-size: 100%;
+    font-size: 150%;
  	/*background-color: blue;
  	text-align: center;
 	 padding: 4px;
@@ -61,7 +66,10 @@
 	 padding: 4px;
  	color: white;*/
     }
-	
+	.d4 {
+	font-size: 300%;
+	border-bottom: 10px dashed #DEFFCA;
+	}
 	
 </style>
 </head>
@@ -70,7 +78,7 @@
     EmployeeBean emp = (EmployeeBean) session.getAttribute("employee");
 
 %>
-	<h2>掲示板新規書き込み</h2><br>
+	<h3><div class="d4">掲示板新規書き込み</div></h3><br>
 	<form action="boardwrite" method="post">
 	
 	<div class="s1">

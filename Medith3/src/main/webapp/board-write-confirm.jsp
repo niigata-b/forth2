@@ -12,6 +12,10 @@
     text-align: center;  
 	}
 	
+	html {
+	background-color: #f0f8ff;
+	}
+	
 	textarea {
 	 width: 500px;  /* 幅を固定 */
   	height: 200px; /* 高さを固定 */
@@ -19,6 +23,33 @@
   	font-size: 150%;
 	}
 	
+	.d2{
+	
+    font-size: 150%;
+ 	/*background-color: blue;
+ 	text-align: center;
+	 padding: 4px;
+ 	color: white;*/
+    }
+	.d3 form {
+	
+	display: inline-block;
+	margin: 0 10px;	
+	}
+	.d4{
+	width: 150px;
+    padding: 10px;
+    padding: 10px;
+    font-size: 100%;
+ 	/*background-color: blue;
+ 	text-align: center;
+	 padding: 4px;
+ 	color: white;*/
+    }
+    .d5 {
+	font-size: 300%;
+	border-bottom: 10px dashed #DEFFCA;
+	}
 </style>	
 
 </head>
@@ -26,7 +57,7 @@
 
  <div class="s1">
   
-  <h2>書き込み確認画面</h2>
+  <h3><div class="d5">書き込み確認画面</div></h3>
 
  <%
     BoardBean board = (BoardBean) request.getAttribute("board");
@@ -40,25 +71,25 @@
         <input type="hidden" name="employee_id" value="<%= board.getEmployee_id() %>">
         </p>
         <p>
-            タイトル： <%= board.getTitle() %>
-        <input type="hidden" name="title" value="<%= board.getTitle() %>">
+         <div class="d2">タイトル：<%= board.getTitle() %>
+        <input type="hidden" name="title" value="<%= board.getTitle() %>"></div>
         </p>
         
-        <table 
+       <div class="d2">内容</div>
         <p>
-            内容： 
         <textarea readonly type="hidden" name="content"><%= board.getContent() %></textarea>
         </p>
        
-         <input type="submit" value="確定">
+       <div class="d3">
+         <input type="submit" value="確定"class="d4">
        
 	</form>
 	
 
 	<FORM>
-	<INPUT type="button" value="キャンセル" onClick="history.back()">
+	<INPUT type="button" value="キャンセル" onClick="history.back()"class="d4">
 	</FORM>
-
+	</div>
 
 	<%
     } else {
