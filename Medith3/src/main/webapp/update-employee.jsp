@@ -24,7 +24,7 @@ body {
 		<input type="hidden" name="employee_id"
 			value="<%= emp.getEmployee_id() %>">
 		<p>
-			名前: <input type="text" name="name" value="<%= emp.getName() %>"pattern=".*\S+.*" required placeholder="入力してください">
+			名前: <input type="text" name="name" maxlength="12" value="<%= emp.getName() %>"pattern=".*\S+.*" required placeholder="入力してください">
 		</p>
 		<p>
 			役職名: <select name="position_name">
@@ -117,8 +117,7 @@ body {
 			</select>
 		</p>
 		<p>
-			パスワード: <input type="password" id="input_pass" name="password"
-				value="<%= emp.getPassword() %>"pattern=".*\S+.*" required placeholder="入力してください">
+			パスワード: <input type="password" id="input_pass" name="password" maxlength="32" value="<%= emp.getPassword() %>"pattern="^[a-zA-Z0-9]+$" required placeholder="※半角英数で入力">
 				<input type="button" id="buttonPassword" value="表示" onclick="pushHideButton();">
 			<script language="javascript">
       function pushHideButton() {

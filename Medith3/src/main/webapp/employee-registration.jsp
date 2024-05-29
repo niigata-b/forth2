@@ -32,11 +32,11 @@
 	<h2>従業員登録画面</h2>
 	<form action="EmployeeRegistrationServlet" method="post">
 		<p>
-			従業員ID: <input type="text" name="employee_id" pattern=".*\S+.*" required placeholder="入力してください">
+			従業員ID: <input type="text" name="employee_id" maxlength="5" pattern="^[a-zA-Z0-9]+$" required placeholder="※半角英数で入力">
 		</p>
 
 		<p>
-			名前: <input type="text" name="name"pattern=".*\S+.*" required placeholder="入力してください">
+			名前: <input type="text" name="name" maxlength="12" pattern=".*\S+.*" required placeholder="入力してください">
 		</p>
 
 		<p>
@@ -117,7 +117,7 @@
 			</select>
 
 		<p>
-			パスワード: <input type="password" id="input_pass" name="password" pattern=".*\S+.*" required placeholder="入力してください">
+			パスワード: <input type="password" id="input_pass" name="password" maxlength="32" pattern="^[a-zA-Z0-9]+$" required placeholder="※半角英数で入力">
 			<input type="button" id="buttonPassword" value="表示" onclick="pushHideButton();">
 			<script language="javascript">
       function pushHideButton() {
