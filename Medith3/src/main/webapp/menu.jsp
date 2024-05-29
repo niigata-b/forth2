@@ -42,10 +42,10 @@ th, td {
 		border-bottom:10px dashed #DEFFCA;
 	}
 	
-/*.d4 {
+.d4 {
     	
    		margin-left:1150px;	
-	}*/
+	}
 	
 .d5 {
 		width: 150px;
@@ -63,11 +63,11 @@ th, td {
 	<h2><div class="d3">掲示板</div></h2>
 	<div class="s1">
 		<form action="userlist" method="post">
-			<input type="submit" value="従業員一覧"class="d5">
+			<input type="submit" value="従業員一覧"class="d5"></span>
 		</form>
 
-		<form action="logout" method="post">
-			<input type="submit" value="ログアウト"class="d5">
+		<form action="board-write.jsp" method="post">
+			<input type="submit" value="新規書き込み"class="d5">
 		</form>		
 	</div>
 	
@@ -75,8 +75,8 @@ th, td {
 		<input type="hidden" name="title">
 	</form>
 	
-	<form action="board-write.jsp" method="post">
-		<div align="right"><input type="submit" value="新規書き込み"class="d5"></div>
+	<form action="logout" method="post">
+		<div align="right"><input type="submit" value="ログアウト"class="d5"></div>
 	</form>
 	
 	
