@@ -11,17 +11,30 @@
 <!--overflow-yは、縦にはみ出た部分の表示方法を指定する。（autoはブラウザー依存）（一般的にはスクロール)-->
 
 <style>
-.top-right-buttons {
+/*新規登録ボタンの配置*/
+.InsertButton {
 	position: absolute;
-	top: 230px;
-	right: 20px;
+	top: 220px;
+	right: 60px;
 }
+/*メニューボタンの配置*/
+.MenuButton {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	
+}
+
 /* テーブル全体のスクロール設定 */
 .table {
 	overflow-y: auto;
 	max-height: 400px;
 }
 
+/*後ろの色*/
+html{
+	background-color: #f0f8ff;
+}
 /* テーブルの基本設定 */
 table {
 	width: 100%;
@@ -47,6 +60,7 @@ th {
 }
 
 /* ボタンの基本スタイル */
+/* 新規登録 */
 .button-submit {
 	display: inline-block;
 	padding: 10px 20px;
@@ -60,6 +74,8 @@ th {
 	margin: 5px;
 }
 
+/* ボタンの基本スタイル */
+/* メニューに戻る */
 .button-submit2 {
 	display: inline-block;
 	padding: 10px 20px;
@@ -67,6 +83,20 @@ th {
 	cursor: pointer;
 	border-radius: 5px;
 	background-color: #6666FF;
+	color: white;
+	border: none;
+	text-align: center;
+	margin: 5px;
+}
+/* ボタンの基本スタイル */
+/* 検索とクリア */
+.button-submit3 {
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 5px;
+	background-color: #FF3333;
 	color: white;
 	border: none;
 	text-align: center;
@@ -96,7 +126,7 @@ th {
 /* ページタイトルのスタイル */
 .page-title {
 	text-align: center;
-	font-size: 24px;
+	font-size: 40px;
 	color: #333;
 	margin-bottom: 20px;
 	font-weight: bold;
@@ -110,10 +140,10 @@ th {
 
 	<form method="post" action="userlist" class="search-form">
 		<p>
-			従業員ID: <input type="text" name="employee_id" class="input-field">
+			従業員ID: <input type="text" name="employee_id" class="input-field" maxlength="5" pattern="^[a-zA-Z0-9]+$" title="半角英数字で入力してください">
 
-			名前: <input type="text" name="name" class="input-field"> 役職: <select
-				name="position_name" class="select-field">
+			名前: <input type="text" name="name" class="input-field"  maxlength="12"> 
+			役職: <select name="position_name" class="select-field">
 				<option value="">選択してください</option>
 				<option value="院長">院長</option>
 				<option value="副院長">副院長</option>
@@ -151,8 +181,8 @@ th {
 				<option value="男">男</option>
 				<option value="女">女</option>
 				<option value="その他">その他</option>
-			</select> <input type="submit" value="検索" class="button-submit"> 
-			<input	type="submit" value="クリア" class="button-submit">
+			</select> <input type="submit" value="検索" class="button-submit3"> 
+			<input	type="submit" value="クリア" class="button-submit3">
 		</p>
 	</form>
 
@@ -161,22 +191,22 @@ th {
 	<p>●検索条件:</p>
 	<div style="margin-bottom: 20px;">
 
-		従業員ID: <span style="margin-right: 20px; color: #0000FF;"> <%= request.getAttribute("employee_id") != null ? request.getAttribute("employee_id") : " " %>
+		従業員ID: <span style="margin-right: 20px; color: #005AFF; font-weight:bold;"> <%= request.getAttribute("employee_id") != null ? request.getAttribute("employee_id") : " " %>
 			<%-- request.getAttribute("name") が null でなければその値を表示し、null であれば " " と表示 --%>
 
-		</span> 名前: <span style="margin-right: 20px; color: #00FF00;"> <%= request.getAttribute("name") != null ? request.getAttribute("name") : " " %>
+		</span> 名前: <span style="margin-right: 20px; color: #005AFF; font-weight:bold;"> <%= request.getAttribute("name") != null ? request.getAttribute("name") : " " %>
 			<%-- request.getAttribute("name") が null でなければその値を表示し、null であれば " " と表示 --%>
 
-		</span> 役職: <span style="margin-right: 20px; color: #00FFFF;"> <%= request.getAttribute("position_name") != null ? request.getAttribute("position_name") : " " %>
+		</span> 役職: <span style="margin-right: 20px; color: #FF4B00; font-weight:bold;"> <%= request.getAttribute("position_name") != null ? request.getAttribute("position_name") : " " %>
 			<%-- request.getAttribute("position_name") が null でなければその値を表示し、null であれば " " と表示 --%>
 
-		</span> 部署: <span style="margin-right: 20px; color: #FFFF00;"> <%= request.getAttribute("section_name") != null ? request.getAttribute("section_name") : " " %>
+		</span> 部署: <span style="margin-right: 20px; color: #FF4B00; font-weight:bold;"> <%= request.getAttribute("section_name") != null ? request.getAttribute("section_name") : " " %>
 			<%-- request.getAttribute("section_name") が null でなければその値を表示し、null であれば " " と表示 --%>
 
-		</span> 勤続時間帯: <span style="margin-right: 20px; color: #FF00FF;"> <%= request.getAttribute("time") != null ? request.getAttribute("time") : " " %>
+		</span> 勤続時間帯: <span style="margin-right: 20px; color: #4CAF50; font-weight:bold;"> <%= request.getAttribute("time") != null ? request.getAttribute("time") : " " %>
 			<%-- request.getAttribute("time") が null でなければその値を表示し、null であれば " " と表示 --%>
 
-		</span> 性別: <span style="margin-right: 20px; color: #FF0000;"> <%= request.getAttribute("gender") != null ? request.getAttribute("gender") : " " %>
+		</span> 性別: <span style="margin-right: 20px; color: #4CAF50; font-weight:bold;"> <%= request.getAttribute("gender") != null ? request.getAttribute("gender") : " " %>
 			<%-- request.getAttribute("gender") が null でなければその値を表示し、null であれば " " と表示 --%>
 		</span>
 	</div>
@@ -255,14 +285,16 @@ th {
     %>
 
 	<% if (isAdmin) { %>
-	<div class="top-right-buttons">
+	<div class="InsertButton">
 		<% if (isAdmin) { %>
 		<form action="employee-registration.jsp" method="POST" class="button-form">
-			<input type="submit" value="新規登録" class="button-submit2">
+			<input type="submit" value="新規登録" class="button-submit">
 		</form>
 		<% } %>
+	</div>
+	<div class="MenuButton">
 		<form action="boardlist" method="POST" class="button-form">
-			<input type="submit" value="メニュー表示" class="button-submit2">
+			<input type="submit" value="メニューに戻る" class="button-submit2">
 		</form>
 	</div>
 	<% } %>

@@ -16,6 +16,36 @@
 	max-height: 450px;
 }
 
+.button-submit {
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 5px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	text-align: center;
+	margin: 5px;
+}
+
+.button-submit2 {
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 5px;
+	background-color: #6666FF;
+	color: white;
+	border: none;
+	text-align: center;
+	margin: 5px;
+}
+
+html {
+	background-color: #f0f8ff;
+}
+
 body {
 	text-align: center;
 }
@@ -25,6 +55,10 @@ table {
 	border-collapse: collapse;
 }
 
+th {
+	background-color: #f2f2f2;
+}
+
 th, td {
 	border: 1px solid black;
 	padding: 8px;
@@ -32,63 +66,62 @@ th, td {
 }
 
 .s1 form {
-	
 	display: inline-block;
-	margin: 0 10px;	
+	margin: 0 10px;
 }
-	
-.d3{
-		font-size:300%;
-		border-bottom:10px dashed #DEFFCA;
-	}
-	
+
+.d3 {
+	font-size: 300%;
+	border-bottom: 10px dashed #DEFFCA;
+}
+
 .d4 {
-    	
-   		margin-left:1150px;	
-	}
-	
+	margin-left: 1150px;
+}
+
 .d5 {
-		width: 150px;
-    	padding: 10px;
-    	padding: 10px;
-    	font-size: 100%;	
-	}
-	
-	.f1{
+	width: 150px;
+	padding: 10px;
+	padding: 10px;
+	font-size: 100%;
+}
+
+.f1 {
 	position: absolute;
-	top: 10px;
-	right: 20px;
-	}
-	
+	top: 50px;
+	right: 40px;
+}
 </style>
 </head>
 <body>
 	<%
 	EmployeeBean emp = (EmployeeBean) session.getAttribute("employee");
 	%>
-	
-	<h2><div class="d3">掲示板</div></h2>
+
+	<h2>
+		<div class="d3">掲示板</div>
+	</h2>
 	<div class="s1">
 		<form action="userlist" method="post">
-			<input type="submit" value="従業員一覧"class="d5"></span>
+			<input type="submit" value="従業員一覧" class="button-submit"></span>
 		</form>
 
 		<form action="board-write.jsp" method="post">
-			<input type="submit" value="新規書き込み"class="d5">
-		</form>		
+			<input type="submit" value="新規書き込み" class="button-submit">
+		</form>
 	</div>
-	
+
 	<form action="BoardDetailServlet" method="post">
 		<input type="hidden" name="title">
 	</form>
-	
+
 	<div class="f1">
-	<form action="logout" method="post">
-		<input type="submit" value="ログアウト"class="d5">
-	</form>
+		<form action="logout" method="post">
+			<input type="submit" value="ログアウト" class="button-submit2">
+		</form>
 	</div>
-	
-	
+
+
 	<%
 	List<BoardBean> boardList = (List<BoardBean>) request.getAttribute("boardList");
 	%>
