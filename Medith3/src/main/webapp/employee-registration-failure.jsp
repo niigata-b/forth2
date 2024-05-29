@@ -12,10 +12,8 @@
 
 <p>登録できませんでした。</p>
 
-<form action="EmployeeRegistrationServlet" method="post">
 
-<input type="submit" value="戻る">
+<input type="submit" value="戻る" onClick="history.back()">
 
-</form>
 </body>
 </html>

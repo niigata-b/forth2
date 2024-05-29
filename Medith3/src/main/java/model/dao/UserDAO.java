@@ -217,7 +217,7 @@ public class UserDAO {
 		return emp;
 	}
 	public void registrationEmployee(EmployeeBean emp) throws SQLException, ClassNotFoundException {
-		String sql = "INSERT INTO employee (employee_id, name, gender, age, year, time, section_id, position_id, password,update_datetime) VALUES (?,?,?,?,?,?,?,?,?,'CURRENT_TIMESTAMP')";
+		String sql = "INSERT INTO employee (employee_id, name, gender, age, year, time, section_id, position_id, password,update_datetime) VALUES (?,?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP)";
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 			pstmt.setString(1, emp.getEmployee_id());

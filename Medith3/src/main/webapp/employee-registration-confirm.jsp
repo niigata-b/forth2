@@ -14,7 +14,7 @@
  <%
     EmployeeBean emp = (EmployeeBean) request.getAttribute("employee");
     %>
-    <form action="CompleteRegistrationEmployeeservlett" method="post">
+    <form action="CompleteRegistrationEmployeeservlet" method="post">
         <p>
             従業員ID: <%= emp.getEmployee_id() %>
         <input type="hidden" name="employee_id" value="<%= emp.getEmployee_id() %>">
@@ -40,11 +40,11 @@
             <input type="hidden" name="time" value="<%= emp.getTime() %>">
         </p>
          <p>
-            部署名: <%= emp.getSection_id() %>
+            部署名: <%= emp.getSection_name() %>
             <input type="hidden" name="section_id" value="<%= emp.getSection_id() %>">
         </p>
         <p>
-            役職名: <%= emp.getPosition_id() %>
+            役職名: <%= emp.getPosition_name() %>
             <input type="hidden" name="position_id" value="<%= emp.getPosition_id() %>">
         </p>
         <p>
@@ -53,9 +53,8 @@
         <p>
             <input type="submit" value="登録確定">
         </p>
-<form action="EmployeeRegistrationServlet" method="post">
+        </form>
 
-<input type="submit" value="戻る">
-</form>
+<input type="submit" value="戻る" onClick="history.back()">
 </body>
 </html>

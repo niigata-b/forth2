@@ -11,8 +11,8 @@
 
 <p>登録が完了しました。</p>
 
-<form action="EmployeeListServlet" method="post">
-
+<form action="user-list.jsp" method="post">
+<input type="submit" value="戻る">
 
 </form>
 </body>

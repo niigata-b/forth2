@@ -3,6 +3,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script>
+	let btn_passview = document.getElementById("btn_passview");
+	let input_pass = document.getElementById("input_pass");
+
+	btn_passview.addEventListener("click", (e)=>{
+
+		e.preventDefault();
+
+		if( input_pass.type === 'password' ) {
+
+			input_pass.type = 'text';
+			btn_passview.textContent = '非表示';
+
+		} else {
+
+			input_pass.type = 'password';
+			btn_passview.textContent = '表示';
+		}
+	});
+
+});
+	</script>
 <meta charset="UTF-8">
 <title>従業員登録</title>
 </head>
@@ -10,11 +32,11 @@
 	<h2>従業員登録画面</h2>
 	<form action="EmployeeRegistrationServlet" method="post">
 		<p>
-			従業員ID: <input type="text" name="employee_id">
+			従業員ID: <input type="text" name="employee_id" pattern=".*\S+.*" required placeholder="入力してください">
 		</p>
 
 		<p>
-			名前: <input type="text" name="name">
+			名前: <input type="text" name="name"pattern=".*\S+.*" required placeholder="入力してください">
 		</p>
 
 		<p>
@@ -95,13 +117,27 @@
 			</select>
 
 		<p>
-			パスワード: <input type="password" name="password">
+			パスワード: <input type="password" id="input_pass" name="password" pattern=".*\S+.*" required placeholder="入力してください">
+			<input type="button" id="buttonPassword" value="表示" onclick="pushHideButton();">
+			<script language="javascript">
+      function pushHideButton() {
+        var txtPass = document.getElementById("input_pass");
+        var btnPass = document.getElementById("buttonPassword");
+        if (txtPass.type === "text") {
+          txtPass.type = "password";
+          btnPass.value = "表示";
+        } else {
+          txtPass.type = "text";
+          btnPass.value = "非表示";
+        }
+      }
+    </script>
 		</p>
 
 		<input type="submit" value="登録">
 	</form>
 
-	<form action="EmployeeListServlet" method="post">
+	<form action="user-list.jsp" method="post">
 		<input type="submit" value="戻る">
 	</form>
 </body>
