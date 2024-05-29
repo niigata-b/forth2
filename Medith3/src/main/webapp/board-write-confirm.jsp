@@ -6,15 +6,34 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>書き込み確認画面</title>
+<style>
+.s1{
+    text-align: center;  
+	}
+	
+	textarea {
+	 width: 500px;  /* 幅を固定 */
+  	height: 200px; /* 高さを固定 */
+  	resize: none;  /* リサイズを無効にする */
+  	font-size: 150%;
+	}
+	
+</style>	
+
 </head>
 <body>
-<h2>従業員登録確認画面</h2>
+
+ <div class="s1">
+  
+  <h2>書き込み確認画面</h2>
 
  <%
     BoardBean board = (BoardBean) request.getAttribute("board");
  	if (board != null) {
   %>
+  
+  
     <form action="boardwriteconf" method="post">
         <p>
             従業員ID: <%= board.getEmployee_id() %>
@@ -24,9 +43,11 @@
             タイトル： <%= board.getTitle() %>
         <input type="hidden" name="title" value="<%= board.getTitle() %>">
         </p>
+        
+        <table 
         <p>
-            内容： <%= board.getContent() %>
-        <input type="hidden" name="content" value="<%= board.getContent() %>">
+            内容： 
+        <textarea readonly type="hidden" name="content"><%= board.getContent() %></textarea>
         </p>
        
          <input type="submit" value="確定">
@@ -34,7 +55,9 @@
 	</form>
 	
 
-<input type="submit" value="戻る" onClick="history.back()">
+	<FORM>
+	<INPUT type="button" value="キャンセル" onClick="history.back()">
+	</FORM>
 
 
 	<%
@@ -44,6 +67,8 @@
 	<%
     }
     %>
-
+	
+	</div>
+	
 </body>
 </html>
