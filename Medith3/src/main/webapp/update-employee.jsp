@@ -94,7 +94,7 @@ html {
 		</p>
 		<p>
 			<label for="password">パスワード:</label>
-			<input type="password" id="input_pass" name="password" maxlength="32" value="<%= emp.getPassword() %>" pattern="^[a-zA-Z0-9]+$" required placeholder="※半角英数で入力">
+			<input type="password" id="input_pass" name="password" minlength="9" maxlength="32" value="<%= emp.getPassword() %>" pattern="^[a-zA-Z0-9]+$" required placeholder="※半角英数で入力">
 			<input type="button" id="buttonPassword" value="表示" onclick="pushHideButton();">
 			<script language="javascript">
       function pushHideButton() {

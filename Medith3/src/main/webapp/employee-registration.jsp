@@ -123,7 +123,7 @@ body {
 			</select>
 
 		<p>
-			パスワード: <input type="password" id="input_pass" name="password" maxlength="32" pattern="^[a-zA-Z0-9]+$" required placeholder="※半角英数で入力">
+			パスワード: <input type="password" id="input_pass" name="password" minlength="9" maxlength="32" pattern="^[a-zA-Z0-9]+$" required placeholder="※半角英数で入力">
 			<input type="button" id="buttonPassword" value="表示" onclick="pushHideButton();">
 			<script language="javascript">
       function pushHideButton() {
