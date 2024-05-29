@@ -242,7 +242,7 @@ th {
 	<%
 	if (isAdmin) {
 	%>
-	<form action="new-employee.jsp" method="POST" class="button-form">
+	<form action="employee-registration.jsp" method="POST" class="button-form">
 		<input type="submit" value="新規登録" class="button-submit">
 	</form>
 	<%
