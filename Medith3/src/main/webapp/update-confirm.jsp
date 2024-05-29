@@ -60,8 +60,7 @@ body {
 			<input type="hidden" name="time" value="<%= emp.getTime() %>">
 		</p>
 		<p>
-			パスワード：
-			<%= emp.getPassword() %>
+			
 			<input type="hidden" name="password" value="<%= emp.getPassword() %>">
 		</p>
 		<p>

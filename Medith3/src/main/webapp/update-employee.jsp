@@ -6,6 +6,7 @@
 <html>
 <head>
 <title>従業員情報変更</title>
+
 <style>
 body {
 	text-align: center;
@@ -23,7 +24,7 @@ body {
 		<input type="hidden" name="employee_id"
 			value="<%= emp.getEmployee_id() %>">
 		<p>
-			名前: <input type="text" name="name" value="<%= emp.getName() %>">
+			名前: <input type="text" name="name" value="<%= emp.getName() %>"pattern=".*\S+.*" required placeholder="入力してください">
 		</p>
 		<p>
 			役職名: <select name="position_name">
@@ -116,8 +117,22 @@ body {
 			</select>
 		</p>
 		<p>
-			パスワード: <input type="text" name="password"
-				value="<%= emp.getPassword() %>">
+			パスワード: <input type="password" id="input_pass" name="password"
+				value="<%= emp.getPassword() %>"pattern=".*\S+.*" required placeholder="入力してください">
+				<input type="button" id="buttonPassword" value="表示" onclick="pushHideButton();">
+			<script language="javascript">
+      function pushHideButton() {
+        var txtPass = document.getElementById("input_pass");
+        var btnPass = document.getElementById("buttonPassword");
+        if (txtPass.type === "text") {
+          txtPass.type = "password";
+          btnPass.value = "表示";
+        } else {
+          txtPass.type = "text";
+          btnPass.value = "非表示";
+        }
+      }
+    </script>
 		</p>
 		<p>
 			<input type="submit" value="更新">

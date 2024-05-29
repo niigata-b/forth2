@@ -33,9 +33,9 @@
        
 	</form>
 	
-<form action="boardwriteback" method="post">
-<input type="submit" value="戻る">
-</form>
+
+<input type="submit" value="戻る" onClick="history.back()">
+
 
 	<%
     } else {

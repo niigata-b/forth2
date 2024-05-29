@@ -35,7 +35,7 @@
 	<br>
 	<table border="1">
 		<tr><th>タイトル</th></tr>
-		<tr><td><input type="text" name="title" required></td></tr>
+		<tr><td><input type="text" name="title" pattern=".*\S+.*" required placeholder="タイトルを入力してください"></td></tr>
 		<tr><th>内容</th></tr>
 		<tr><td><input type="text" size="200" name="content"></td></tr>
 	</table>
