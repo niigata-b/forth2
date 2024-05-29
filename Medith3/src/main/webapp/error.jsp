@@ -5,6 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>エラーです</title>
+<style>
+body {
+	text-align: center;
+}
+</style>
 </head>
 <body>
 	<h1>エラーです</h1>

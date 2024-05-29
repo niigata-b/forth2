@@ -5,6 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>この従業員データは削除できません</title>
+<style>
+body {
+	text-align: center;
+}
+</style>
 </head>
 <body>
 

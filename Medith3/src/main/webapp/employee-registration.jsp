@@ -27,6 +27,11 @@
 	</script>
 <meta charset="UTF-8">
 <title>従業員登録</title>
+<style>
+body {
+	text-align: center;
+}
+</style>
 </head>
 <body>
 	<h2>従業員登録画面</h2>

@@ -6,6 +6,11 @@
 <html>
 <head>
 <title>削除完了</title>
+<style>
+body {
+	text-align: center;
+}
+</style>
 </head>
 <body>
     <h2>削除完了</h2>

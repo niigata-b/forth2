@@ -6,6 +6,11 @@
 <html>
 <head>
 <title>本当に削除しますか？</title>
+<style>
+body {
+	text-align: center;
+}
+</style>
 </head>
 <body>
     <h2>本当に削除しますか？</h2>

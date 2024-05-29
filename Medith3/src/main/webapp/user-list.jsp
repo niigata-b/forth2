@@ -14,7 +14,7 @@
 /*新規登録ボタンの配置*/
 .InsertButton {
 	position: absolute;
-	top: 220px;
+	top: 260px;
 	right: 60px;
 }
 /*メニューボタンの配置*/
@@ -140,7 +140,7 @@ th {
 
 	<form method="post" action="userlist" class="search-form">
 		<p>
-			従業員ID: <input type="text" name="employee_id" class="input-field" maxlength="5" pattern="^[a-zA-Z0-9]+$" title="半角英数字で入力してください">
+			従業員ID: <input type="text" name="employee_id" class="input-field" maxlength="5" pattern="^[a-zA-Z0-9]+$" title="半角英数字で入力してください" placeholder="※半角英数字で入力">
 
 			名前: <input type="text" name="name" class="input-field"  maxlength="12"> 
 			役職: <select name="position_name" class="select-field">

@@ -5,6 +5,11 @@
 <html>
 <head>
 <title>変更完了</title>
+<style>
+body {
+	text-align: center;
+}
+</style>
 </head>
 <body>
     <h2>変更完了</h2>
