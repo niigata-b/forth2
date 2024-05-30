@@ -11,6 +11,10 @@
 .s1{
     text-align: center;  
 	}
+	.s2{
+		
+	border-bottom: 10px dashed #BE4CB5
+	}
 	
 	html {
 	background-color: #f0f8ff;
@@ -21,6 +25,8 @@
   	height: 200px; /* 高さを固定 */
   	resize: none;  /* リサイズを無効にする */
   	font-size: 150%;
+  	
+  	 border-radius: 0.67em;   /* 角丸 */
 	}
 	
 	.d2{
@@ -41,13 +47,14 @@
     padding: 10px;
     padding: 10px;
     font-size: 100%;
- 	/*background-color: blue;
- 	text-align: center;
-	 padding: 4px;
- 	color: white;*/
+ 	background-color: #6666FF;
+	color: white;
+	border: none;
+	text-align: center;
+	margin: 5px;
     }
     .d5 {
-	font-size: 300%;
+	font-size: 150%;
 	border-bottom: 10px dashed #DEFFCA;
 	}
 </style>	
@@ -57,7 +64,7 @@
 
  <div class="s1">
   
-  <h3><div class="d5">書き込み確認画面</div></h3>
+  <h2><div class="d5">書き込み確認画面</div></h2>
 
  <%
     BoardBean board = (BoardBean) request.getAttribute("board");
@@ -70,10 +77,10 @@
             従業員ID: <%= board.getEmployee_id() %>
         <input type="hidden" name="employee_id" value="<%= board.getEmployee_id() %>">
         </p>
-        <p>
-         <div class="d2">タイトル：<%= board.getTitle() %>
-        <input type="hidden" name="title" value="<%= board.getTitle() %>"></div>
-        </p>
+        <div class="d2"><p>
+         <span class="s2">タイトル：<%= board.getTitle() %></span>
+        <input type="hidden" name="title" value="<%= board.getTitle() %>">
+        </p></div>
         
        <div class="d2">内容</div>
         <p>

@@ -61,13 +61,14 @@
     padding: 10px;
     padding: 10px;
     font-size: 100%;
- 	/*background-color: blue;
- 	text-align: center;
-	 padding: 4px;
- 	color: white;*/
+ 	background-color: #6666FF;
+	color: white;
+	border: none;
+	text-align: center;
+	margin: 5px;
     }
 	.d4 {
-	font-size: 300%;
+	font-size: 150%;
 	border-bottom: 10px dashed #DEFFCA;
 	}
 	
@@ -78,7 +79,7 @@
     EmployeeBean emp = (EmployeeBean) session.getAttribute("employee");
 
 %>
-	<h3><div class="d4">掲示板新規書き込み</div></h3><br>
+	<h2><div class="d4">掲示板新規書き込み</div></h2><br>
 	<form action="boardwrite" method="post">
 	
 	<div class="s1">

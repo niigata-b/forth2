@@ -14,17 +14,26 @@
 		text-align:center	
 		
 	}
+	
 	.d1{
 	width: 150px;
     padding: 10px;
     padding: 10px;
     font-size: 100%;
- 	/*background-color: blue;
- 	text-align: center;
-	 padding: 4px;
- 	color: white;*/
+ 	background-color: #4CAF50;
+	color: white;
+	border: none;
+	text-align: center;
+	margin: 5px;
     }
-    
+     .d2 {
+	font-size: 150%;
+	border-bottom: 10px dashed #DEFFCA;
+	}
+     .d3 {
+	font-size: 150%;
+	
+	}
     .s1{
     	width: 400px;
 		height: 300px;
@@ -37,8 +46,8 @@
 </head>
 <body>
 
-<h1>書き込み完了</h1>
-<h2>書きこみが完了しました。</h2>
+<h2><div class="d2">書き込み完了</div></h2>
+<h3><div class="d3">書きこみが完了しました。</div></h3>
 
 <form action="boardlist" method="post">
 	<input type="submit" value="メニューへ戻る"class="d1">
