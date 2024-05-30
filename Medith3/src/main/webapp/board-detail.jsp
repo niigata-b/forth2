@@ -73,13 +73,24 @@
 		
 	border-bottom: 10px dashed #BE4CB5;
 	}
+	.font-f1{
+		font-family:serif;
+		font-size:150%;
+		position: absolute;
+		top: 20px;
+		left: 40px;
+	}
+	.c1{
+		color:red;
+	}
 	
 </style>
 </head>
 <body>
+
 <h2><div class="s3">掲示板詳細画面</div></h2>
 <jsp:useBean id="board" scope="request" class="model.entity.BoardBean"/>
-
+<h2><div class="font-f1">Medi<span class="c1">✙</span>h</div></h2>
 <div class="d2">
 <table border="1">
 	<tr><th>No</th><td><jsp:getProperty name="board" property="board_id"/></td></tr>

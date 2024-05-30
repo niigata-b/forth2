@@ -83,7 +83,16 @@
 	text-align: center;
 	margin: 5px;
     }
-	
+	.font-f1{
+		font-family:serif;
+		font-size:150%;
+		position: absolute;
+		top: 20px;
+		left: 40px;
+	}
+.c1{
+		color:red;
+	}
 </style>
 </head>
 <body>
@@ -91,6 +100,8 @@
     EmployeeBean emp = (EmployeeBean) session.getAttribute("employee");
 
 %>
+	<h2><div class="font-f1">Medi<span class="c1">✙</span>h</div></h2>
+	
 	<h2><div class="d4">掲示板新規書き込み</div></h2><br>
 	<form action="boardwrite" method="post">
 	

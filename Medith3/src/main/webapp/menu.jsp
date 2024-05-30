@@ -91,6 +91,16 @@ th, td {
 	top: 50px;
 	right: 40px;
 }
+.font-f1{
+		font-family:serif;
+		font-size:200%;
+		position: absolute;
+		top: 20px;
+		left: 40px;
+	}
+.c1{
+		color:red;
+	}
 </style>
 </head>
 <body>
@@ -101,6 +111,8 @@ th, td {
 	<h2>
 		<div class="d3">掲示板</div>
 	</h2>
+	<h2><div class="font-f1">Medi<span class="c1">✙</span>h</div></h2>
+	
 	<div class="s1">
 		<form action="userlist" method="post">
 			<input type="submit" value="従業員一覧" class="button-submit"></span>
