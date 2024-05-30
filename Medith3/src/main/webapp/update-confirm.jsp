@@ -67,9 +67,20 @@ button {
 	font-size: 1em;
 	margin-top: 20px;
 }
+.font-f1{
+		font-family:serif;
+		font-size:150%;
+		position: absolute;
+		top: 20px;
+		left: 40px;
+	}
+.c1{
+		color:red;
+	}
 </style>
 </head>
 <body>
+<h2><div class="font-f1">Medi<span class="c1">✙</span>h</div></h2>
     <div class="container">
 	<h2>従業員情報変更確認</h2>
 
