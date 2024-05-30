@@ -93,7 +93,7 @@ th, td {
 }
 .font-f1{
 		font-family:serif;
-		font-size:200%;
+		font-size:150%;
 		position: absolute;
 		top: 20px;
 		left: 40px;

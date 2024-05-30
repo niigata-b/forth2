@@ -35,6 +35,7 @@
 	border: none;
 	text-align: center;
 	margin: 5px;
+	
     }
     .d6 {
 	font-size: 150%;

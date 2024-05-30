@@ -68,7 +68,7 @@
 	margin: 5px;
     }
 	.d4 {
-	font-size: 150%;
+	font-size: 200%;
 	border-bottom: 10px dashed #DEFFCA;
 	}
 	
