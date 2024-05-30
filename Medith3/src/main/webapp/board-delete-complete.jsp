@@ -82,7 +82,7 @@
     <%
     } else {
     %>
-    <p>従業員情報が見つかりませんでした。</p>
+    <p>掲示板情報が見つかりませんでした。</p>
     <form action="boardlist" method="post">
         <input type="submit" value="メニューに戻る"class="d5">
     </form>
