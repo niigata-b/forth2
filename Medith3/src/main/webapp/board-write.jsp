@@ -72,6 +72,18 @@
 	border-bottom: 10px dashed #DEFFCA;
 	}
 	
+	.d5{
+	width: 150px;
+    padding: 10px;
+    padding: 10px;
+    font-size: 100%;
+ 	background-color: #f44336;
+	color: white;
+	border: none;
+	text-align: center;
+	margin: 5px;
+    }
+	
 </style>
 </head>
 <body>
@@ -101,7 +113,7 @@
 	</form>
 	
 	<form action="boardlist" method="post">
-		<input type="submit" value="戻る" class="d3">
+		<input type="submit" value="戻る" class="d5">
 	</form>
 	</div>
 	

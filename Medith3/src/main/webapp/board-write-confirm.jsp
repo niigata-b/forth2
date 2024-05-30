@@ -57,6 +57,17 @@
 	font-size: 150%;
 	border-bottom: 10px dashed #DEFFCA;
 	}
+	.d6{
+	width: 150px;
+    padding: 10px;
+    padding: 10px;
+    font-size: 100%;
+ 	background-color: #f44336;
+	color: white;
+	border: none;
+	text-align: center;
+	margin: 5px;
+    }
 </style>	
 
 </head>
@@ -94,7 +105,7 @@
 	
 
 	<FORM>
-	<INPUT type="button" value="キャンセル" onClick="history.back()"class="d4">
+	<INPUT type="button" value="キャンセル" onClick="history.back()"class="d6">
 	</FORM>
 	</div>
 

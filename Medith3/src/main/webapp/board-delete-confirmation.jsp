@@ -59,6 +59,17 @@
 		font-size: 120%;
 		
 	}
+	.d7{
+	width: 150px;
+    padding: 10px;
+    padding: 10px;
+    font-size: 100%;
+ 	background-color: #f44336;
+	color: white;
+	border: none;
+	text-align: center;
+	margin: 5px;
+    }
 	
 	</style>
 </head>
@@ -90,7 +101,7 @@
         <input type="submit" value="削除"class="d5">
     </form>
     <form action="boardlist" method="post">
-       <input type="submit" value="キャンセル"class="d5">
+       <input type="submit" value="キャンセル"class="d7">
     </form></div>
     <%
     } else {

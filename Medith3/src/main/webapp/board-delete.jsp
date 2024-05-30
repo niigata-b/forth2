@@ -56,17 +56,28 @@
 		font-size: 130%;
 		color: #FF0000;
 	}
+	 .d5{
+	width: 150px;
+    padding: 10px;
+    padding: 10px;
+    font-size: 100%;
+ 	background-color: #f44336;
+	color: white;
+	border: none;
+	text-align: center;
+	margin: 5px;
+    }
 </style>
 </head>
 <body>
-    <h2><div class="d6">削除確認</div></h2>
+    <h2><div class="d6">掲示板情報削除確認</div></h2>
 
     <%
     BoardBean board = (BoardBean) request.getAttribute("board");
     if (board != null) {
     %>
      <div class="d2">
-    <p><span class="font-color">以下の従業員情報を削除します。よろしいですか？</span></p>
+    <p><span class="font-color">以下の掲示板情報を削除します。よろしいですか？</span></p>
     <p>No: <%= board.getBoard_id() %></p>
     <p>従業員ID: <%= board.getEmployee_id() %></p>
     <p>更新日時: <%= board.getUpdate_datetime() %></p></div>
@@ -82,7 +93,7 @@
     </form>
     
     <form action="boardlist" method="post">
-        <input type="submit" value="キャンセル"class="d5">
+        <input type="submit" value="キャンセル"class="d7">
     </form></div>
     <%
     } else {

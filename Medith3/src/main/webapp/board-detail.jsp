@@ -58,6 +58,17 @@
 	text-align: center;
 	margin: 5px;
     }
+    .d6{
+	width: 150px;
+    padding: 10px;
+    padding: 10px;
+    font-size: 100%;
+ 	background-color:  #4CAF50;
+	color: white;
+	border: none;
+	text-align: center;
+	margin: 5px;
+    }
 	.s2{
 		
 	border-bottom: 10px dashed #BE4CB5;
@@ -96,7 +107,7 @@
 	
 
 	<form action="boardlist" method="POST">
-		<input type="submit" value="メニューへ戻る"class="d5">
+		<input type="submit" value="メニューへ戻る"class="d6">
 	</form>
 	</div>
 	
