@@ -30,6 +30,7 @@ title {
 p {
 	margin: 23px 0;
 	font-weight: bold;
+	color: #FF3333;
 }
 
 input[type="submit"] {
@@ -53,7 +54,7 @@ input[type="submit"] {
 	<div class="container">
 		<h2>登録エラー画面</h2>
 
-		<p>その従業員IDはすでに使われています。</p>
+		<p>この従業員IDはすでに使われています。</p>
 
 
 		<input type="submit" value="戻る" onClick="history.back()">

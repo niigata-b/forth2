@@ -123,7 +123,7 @@ p {
 		<%
     } else {
     %>
-		<p>従業員情報が見つかりませんでした。</p>
+		<p style="color: #FF3333;">従業員情報が見つかりませんでした。</p>
 		<form action="userlist" method="post">
 			<button type="submit" class="button-submit2">従業員一覧に戻る</button>
 		</form>

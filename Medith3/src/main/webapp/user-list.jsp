@@ -41,7 +41,6 @@ table {
 	border-collapse: collapse;
 	
 }
-
 /* テーブルヘッダーとデータセルのスタイル */
 th, td {
 	border: 1px solid black;
@@ -58,6 +57,20 @@ th {
 .button-form {
 	display: inline-block;
 	text-align: 10px;
+}
+/* ボタンの基本スタイル */
+/* 変更、削除 */
+.button-submit5 {
+	display: inline-block;
+	padding: 10px 20px ;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 5px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	text-align: center;
+	margin: 5px;
 }
 
 /* ボタンの基本スタイル */
@@ -232,43 +245,43 @@ th {
 	<div class="table">
 		<table>
 			<tr>
-				<th>従業員ID</th>
-				<th>役職名</th>
-				<th>部署名</th>
-				<th>名前</th>
-				<th>性別</th>
-				<th>年齢</th>
-				<th>勤続年数</th>
-				<th>勤続時間帯</th>
-				<th>更新時間</th>
-				<th>操作</th>
+				<th style="text-align: center;">従業員ID</th>
+				<th style="text-align: center;">役職名</th>
+				<th style="text-align: center;">部署名</th>
+				<th style="text-align: center;">名前</th>
+				<th style="text-align: center;">性別</th>
+				<th style="text-align: center;">年齢</th>
+				<th style="text-align: center;">勤続年数</th>
+				<th style="text-align: center;">勤続時間帯</th>
+				<th style="text-align: center;">更新時間</th>
+				<th style="text-align: center;">操作</th>
 			</tr>
 			<%
                 for (EmployeeBean emp : empList) {
             %>
 			<tr>
-				<td><%= emp.getEmployee_id() %></td>
-				<td><%= emp.getPosition_name() %></td>
-				<td><%= emp.getSection_name() %></td>
-				<td><%= emp.getName() %></td>
-				<td><%= emp.getGender() %></td>
-				<td><%= emp.getAge() %></td>
-				<td><%= emp.getYear() %></td>
-				<td><%= emp.getTime() %></td>
-				<td><%= emp.getUpdate_datetime() %></td>
-				<td>
+				<td style="text-align: center;"><%= emp.getEmployee_id() %></td>
+				<td style="text-align: center;"><%= emp.getPosition_name() %></td>
+				<td style="text-align: center;"><%= emp.getSection_name() %></td>
+				<td style="text-align: center;"><%= emp.getName() %></td>
+				<td style="text-align: center;"><%= emp.getGender() %></td>
+				<td style="text-align: center;"><%= emp.getAge() %></td>
+				<td style="text-align: center;"><%= emp.getYear() %></td>
+				<td style="text-align: center;"><%= emp.getTime() %></td>
+				<td style="text-align: center;"><%= emp.getUpdate_datetime() %></td>
+				<td style="text-align: center;">
 					<% if (isAdmin) { %>
 					<form action="UpdateEmployeeServlet" method="post"
-						style="display: inline;">
+						style="display: inline-block;" >
 						<input type="hidden" name="employee_id"
 							value="<%= emp.getEmployee_id() %>"> <input type="submit"
-							value="変更" class="button-submit">
+							value="変更" class="button-submit5">
 					</form>
 					<form action="DeleteEmployeeConfirmServlet" method="post"
-						style="display: inline;">
+						style="display: inline-block;">
 						<input type="hidden" name="employee_id"
 							value="<%= emp.getEmployee_id() %>"> <input type="submit"
-							value="削除" class="button-submit">
+							value="削除" class="button-submit5">
 					</form> <% } %>
 				</td>
 			</tr>

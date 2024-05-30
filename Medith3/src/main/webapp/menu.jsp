@@ -128,20 +128,20 @@ th, td {
 	<div class="table">
 		<table>
 			<tr>
-				<th>No</th>
-				<th>タイトル</th>
-				<th>内容</th>
-				<th>更新日時</th>
+				<th style="text-align: center;">No</th>
+				<th style="text-align: center;">タイトル</th>
+				<th style="text-align: center;">内容</th>
+				<th style="text-align: center;">更新日時</th>
 			</tr>
 			<%
 			if (boardList != null) {
 				for (BoardBean board : boardList) {
 			%>
 			<tr>
-				<td><%=board.getBoard_id()%></td>
+				<td style="text-align: center;"><%=board.getBoard_id()%></td>
 				<td><a href="boarddetail?board_id=<%=board.getBoard_id()%>"><%=board.getTitle()%></a></td>
 				<td><%=board.getContent()%></td>
-				<td><%=board.getUpdate_datetime()%></td>
+				<td style="text-align: center;"><%=board.getUpdate_datetime()%></td>
 			</tr>
 			<%
 			}

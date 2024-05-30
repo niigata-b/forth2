@@ -9,6 +9,9 @@
 body {
 	text-align: center;
 }
+h1{
+	color: #FF3333;
+}
 </style>
 </head>
 <body>
