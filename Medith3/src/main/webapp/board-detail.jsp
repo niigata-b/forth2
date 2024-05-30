@@ -24,6 +24,8 @@
   	height: 200px; /* 高さを固定 */
   	resize: none;  /* リサイズを無効にする */
   	font-size: 150%;
+  	border: 2px solid #BE4CB5;  /* 枠線 */
+  	 border-radius: 0.67em;   /* 角丸 */
 	}
 	
 	.d4 form {
@@ -38,6 +40,11 @@
     }
     .d3{
     font-size: 150%;
+    
+    }
+    .s3{
+    font-size: 150%;
+    border-bottom: 10px dashed #DEFFCA;
     }
     
     .d5{
@@ -45,16 +52,21 @@
     padding: 10px;
     padding: 10px;
     font-size: 100%;
- 	/*background-color: blue;
- 	text-align: center;
-	 padding: 4px;
- 	color: white;*/
+ 	background-color: #6666FF;
+	color: white;
+	border: none;
+	text-align: center;
+	margin: 5px;
     }
+	.s2{
+		
+	border-bottom: 10px dashed #BE4CB5;
+	}
 	
 </style>
 </head>
 <body>
-<h2><div class="d3">掲示板詳細画面</div></h2>
+<h2><div class="s3">掲示板詳細画面</div></h2>
 <jsp:useBean id="board" scope="request" class="model.entity.BoardBean"/>
 
 <div class="d2">
@@ -67,8 +79,7 @@
 </div>
 <br>
 		<div class="d3">
-		<p>
-            タイトル： <%= board.getTitle() %>
+		<p> <span class="s2">タイトル： <%= board.getTitle() %></span>
         <input type="hidden" name="title" value="<%= board.getTitle() %>">
         </p></div>
 

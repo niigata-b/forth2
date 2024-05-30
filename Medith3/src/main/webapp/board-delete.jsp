@@ -18,6 +18,8 @@
   	height: 200px; /* 高さを固定 */
   	resize: none;  /* リサイズを無効にする */
   	font-size: 150%;
+  	border: 2px solid #BE4CB5;  /* 枠線 */
+  	 border-radius: 0.67em;   /* 角丸 */
 	}
 	.d2{
     font-size: 100%;
@@ -36,26 +38,39 @@
     padding: 10px;
     padding: 10px;
     font-size: 100%;
- 	/*background-color: blue;
- 	text-align: center;
-	 padding: 4px;
- 	color: white;*/
+ 	background-color: #6666FF;
+	color: white;
+	border: none;
+	text-align: center;
+	margin: 5px;
     }
+    .d6 {
+	font-size: 150%;
+	border-bottom: 10px dashed #DEFFCA;
+	}
+	.s2{
+		
+	border-bottom: 10px dashed #BE4CB5
+	}
+	.font-color{
+		font-size: 130%;
+		color: #FF0000;
+	}
 </style>
 </head>
 <body>
-    <h2>削除確認</h2>
+    <h2><div class="d6">削除確認</div></h2>
 
     <%
     BoardBean board = (BoardBean) request.getAttribute("board");
     if (board != null) {
     %>
      <div class="d2">
-    <p>以下の従業員情報を削除します。よろしいですか？</p>
+    <p><span class="font-color">以下の従業員情報を削除します。よろしいですか？</span></p>
     <p>No: <%= board.getBoard_id() %></p>
     <p>従業員ID: <%= board.getEmployee_id() %></p>
     <p>更新日時: <%= board.getUpdate_datetime() %></p></div>
-     <div class="d3"><p>タイトル: <%= board.getTitle() %></p> </div>
+     <div class="d3"><p><span class="s2">タイトル: <%= board.getTitle() %></span></p> </div>
     <div class="d3">内容</div>
 	 <p>      
         <textarea readonly type="hidden" name="content"><%= board.getContent() %></textarea>
