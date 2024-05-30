@@ -45,7 +45,7 @@
 	margin: 5px;
     }
      .d6 {
-	font-size: 150%;
+	font-size: 130%;
 	border-bottom: 10px dashed #DEFFCA;
 	}
 	.s2{
@@ -70,6 +70,16 @@
 	text-align: center;
 	margin: 5px;
     }
+    .font-f1{
+		font-family:serif;
+		font-size:150%;
+		position: absolute;
+		top: 20px;
+		left: 40px;
+	}
+.c1{
+		color:red;
+	}
 	
 	</style>
 </head>
@@ -81,18 +91,19 @@
     BoardBean board = (BoardBean) request.getAttribute("board");
     if (board != null) {
     %>
+    <h2><div class="font-f1">Medi<span class="c1">✙</span>h</div></h2>
     
     <h2><div class="d6"><span class="font-color">本当に削除しますか？</span></div></h2>
     <div class="d2">
     <p><span class="font-size">以下の掲示板情報を本当に削除してよろしいですか？</span></p>
-     <p>No: <%= board.getBoard_id() %></p>
+     No: <%= board.getBoard_id() %><br>
     <p>従業員ID: <%= board.getEmployee_id() %></p>
     <p>更新日時: <%= board.getUpdate_datetime() %></p></div>
      <div class="d3"><p><span class="s2">タイトル: <%= board.getTitle() %></span></p></div>
     <div class="d3">内容</div>
-	 <p>      
+	   
         <textarea readonly type="hidden" name="content"><%= board.getContent() %></textarea>
-        </p>
+      
 	
 	<div class="d4">
 	<!-- 削除したデータの情報を表示と削除のために、従業員IDをhiddenでこっそり持っていく -->

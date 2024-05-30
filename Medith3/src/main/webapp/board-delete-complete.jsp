@@ -44,6 +44,16 @@
     .s2{
 		border-bottom: 10px dashed #BE4CB5
 	}
+	.font-f1{
+		font-family:serif;
+		font-size:150%;
+		position: absolute;
+		top: 20px;
+		left: 40px;
+	}
+.c1{
+		color:red;
+	}
 
 </style>
 </head>
@@ -54,15 +64,17 @@
     BoardBean board = (BoardBean) request.getAttribute("board");
     if (board != null) {
     %>
+    <h2><div class="font-f1">Medi<span class="c1">✙</span>h</div></h2>
+    
     <h2><div class="d6">削除完了</div></h2>
-    <p>No: <%= board.getBoard_id() %></p>
+    No: <%= board.getBoard_id() %><br>
     <p>従業員ID: <%= board.getEmployee_id() %></p>
     <p>更新日時: <%= board.getUpdate_datetime() %></p>
      <div class="d3"><p><span class="s2">タイトル: <%= board.getTitle() %></span></p></div>
     <div class="d3">内容</div>
-     <p>      
+        
         <textarea readonly type="hidden" name="content"><%= board.getContent() %></textarea>
-        </p>
+        
 
     <form action="boardlist" method="post">
        <input type="submit" value="メニューに戻る"class="d5">
