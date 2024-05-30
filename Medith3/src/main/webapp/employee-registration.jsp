@@ -93,9 +93,22 @@ input[type="submit"] {
 	width: 100px;
 	text-align:left;
 } */
+.font-f1{
+		font-family:serif;
+		font-size:150%;
+		position: absolute;
+		top: 20px;
+		left: 40px;
+	}
+.c1{
+		color:red;
+	}
+
 </style>
 </head>
 <body>
+<h2><div class="font-f1">Medi<span class="c1">✙</span>h</div></h2>
+
 	<div class="container">
 		<h2>従業員登録画面</h2>
 		<form action="EmployeeRegistrationServlet" method="post">

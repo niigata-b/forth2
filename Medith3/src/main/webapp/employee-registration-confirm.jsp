@@ -67,6 +67,16 @@ input[type="submit"] {
 	text-align: center;
 	margin: 5px;
 }
+.font-f1{
+		font-family:serif;
+		font-size:150%;
+		position: absolute;
+		top: 20px;
+		left: 40px;
+	}
+.c1{
+		color:red;
+	}
 </style>
 </head>
 <body>
@@ -76,6 +86,8 @@ input[type="submit"] {
 		<%
     EmployeeBean emp = (EmployeeBean) request.getAttribute("employee");
     %>
+    <h2><div class="font-f1">Medi<span class="c1">✙</span>h</div></h2>
+    
 		<form action="CompleteRegistrationEmployeeservlet" method="post">
 			<p>
 				従業員ID:　
