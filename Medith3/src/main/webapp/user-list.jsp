@@ -39,6 +39,7 @@ html{
 table {
 	width: 100%;
 	border-collapse: collapse;
+	
 }
 
 /* テーブルヘッダーとデータセルのスタイル */
@@ -142,8 +143,8 @@ th {
 		<p>
 			従業員ID: <input type="text" name="employee_id" class="input-field" maxlength="5" pattern="^[a-zA-Z0-9]+$" title="半角英数字で入力してください" placeholder="※半角英数字で入力">
 
-			名前: <input type="text" name="name" class="input-field"  maxlength="12"> 
-			役職: <select name="position_name" class="select-field">
+			　　名前: <input type="text" name="name" class="input-field"  maxlength="12"> 
+			　　役職: <select name="position_name" class="select-field">
 				<option value="">選択してください</option>
 				<option value="院長">院長</option>
 				<option value="副院長">副院長</option>
@@ -158,7 +159,7 @@ th {
 				<option value="看護師">看護師</option>
 				<option value="医師">医師</option>
 				<option value="臨床検査技師">臨床検査技師</option>
-			</select> 部署: <select name="section_name" class="select-field">
+			</select> 　　部署: <select name="section_name" class="select-field">
 				<option value="">選択してください</option>
 				<option value="内科">内科</option>
 				<option value="外科">外科</option>
@@ -171,17 +172,17 @@ th {
 				<option value="予防医療センター">予防医療センター</option>
 				<option value="薬剤部">薬剤部</option>
 				<option value="臨床検査科">臨床検査科</option>
-			</select> 勤続時間帯: <select name="time" class="select-field">
+			</select> 　　勤続時間帯: <select name="time" class="select-field">
 				<option value="">選択してください</option>
 				<option value="朝">朝</option>
 				<option value="夜">夜</option>
 				<option value="不在">不在</option>
-			</select> <br> 性別: <select name="gender" class="select-field">
+			</select> <br> 　　性別: <select name="gender" class="select-field">
 				<option value="">選択してください</option>
 				<option value="男">男</option>
 				<option value="女">女</option>
 				<option value="その他">その他</option>
-			</select> <input type="submit" value="検索" class="button-submit3"> 
+			</select>　　　 <input type="submit" value="検索" class="button-submit3"> 
 			<input	type="submit" value="クリア" class="button-submit3">
 		</p>
 	</form>
@@ -284,7 +285,6 @@ th {
         }
     %>
 
-	<% if (isAdmin) { %>
 	<div class="InsertButton">
 		<% if (isAdmin) { %>
 		<form action="employee-registration.jsp" method="POST" class="button-form">
@@ -297,6 +297,5 @@ th {
 			<input type="submit" value="メニューに戻る" class="button-submit2">
 		</form>
 	</div>
-	<% } %>
 </body>
 </html>

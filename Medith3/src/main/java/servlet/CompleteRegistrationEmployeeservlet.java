@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import model.dao.UserDAO;
 import model.entity.EmployeeBean;
 
+// 従業員登録完了画面
+
 @WebServlet("/CompleteRegistrationEmployeeservlet")
 public class CompleteRegistrationEmployeeservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
