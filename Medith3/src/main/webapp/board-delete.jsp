@@ -56,7 +56,7 @@
 		font-size: 130%;
 		color: #FF0000;
 	}
-	 .d5{
+	 .d7{
 	width: 150px;
     padding: 10px;
     padding: 10px;
