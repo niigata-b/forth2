@@ -28,7 +28,7 @@
 /* テーブル全体のスクロール設定 */
 .table {
 	overflow-y: auto;
-	max-height: 400px;
+	max-height: 330px;
 }
 
 /*後ろの色*/
@@ -185,25 +185,26 @@ th {
 				<option value="予防医療センター">予防医療センター</option>
 				<option value="薬剤部">薬剤部</option>
 				<option value="臨床検査科">臨床検査科</option>
-			</select> 　　勤続時間帯: <select name="time" class="select-field">
+			</select> 　　勤務時間帯: <select name="time" class="select-field">
 				<option value="">選択してください</option>
-				<option value="朝">朝</option>
-				<option value="夜">夜</option>
+				<option value="日勤">日勤</option>
+				<option value="準夜勤">準夜勤</option>
+				<option value="深夜勤">深夜勤</option>
 				<option value="不在">不在</option>
 			</select> <br> 　　性別: <select name="gender" class="select-field">
 				<option value="">選択してください</option>
 				<option value="男">男</option>
 				<option value="女">女</option>
 				<option value="その他">その他</option>
-			</select>　　　 <input type="submit" value="検索" class="button-submit3"> 
-			<input	type="submit" value="クリア" class="button-submit3">
+			</select>　　　 <input type="submit" value="検索+クリア" class="button-submit3"> 
+
 		</p>
 	</form>
 
 	<%-- 検索条件を表示 --%>
 
-	<p>●検索条件:</p>
-	<div style="margin-bottom: 20px;">
+	<p style="margin-bottom: 20px; font-size: 20px;">●検索条件:</p>
+	<div style="margin-bottom: 20px; font-size: 20px;">
 
 		従業員ID: <span style="margin-right: 20px; color: #005AFF; font-weight:bold;"> <%= request.getAttribute("employee_id") != null ? request.getAttribute("employee_id") : " " %>
 			<%-- request.getAttribute("name") が null でなければその値を表示し、null であれば " " と表示 --%>
@@ -217,7 +218,7 @@ th {
 		</span> 部署: <span style="margin-right: 20px; color: #FF4B00; font-weight:bold;"> <%= request.getAttribute("section_name") != null ? request.getAttribute("section_name") : " " %>
 			<%-- request.getAttribute("section_name") が null でなければその値を表示し、null であれば " " と表示 --%>
 
-		</span> 勤続時間帯: <span style="margin-right: 20px; color: #4CAF50; font-weight:bold;"> <%= request.getAttribute("time") != null ? request.getAttribute("time") : " " %>
+		</span> 勤務時間帯: <span style="margin-right: 20px; color: #4CAF50; font-weight:bold;"> <%= request.getAttribute("time") != null ? request.getAttribute("time") : " " %>
 			<%-- request.getAttribute("time") が null でなければその値を表示し、null であれば " " と表示 --%>
 
 		</span> 性別: <span style="margin-right: 20px; color: #4CAF50; font-weight:bold;"> <%= request.getAttribute("gender") != null ? request.getAttribute("gender") : " " %>
@@ -252,7 +253,7 @@ th {
 				<th style="text-align: center;">性別</th>
 				<th style="text-align: center;">年齢</th>
 				<th style="text-align: center;">勤続年数</th>
-				<th style="text-align: center;">勤続時間帯</th>
+				<th style="text-align: center;">勤務時間帯</th>
 				<th style="text-align: center;">更新時間</th>
 				<th style="text-align: center;">操作</th>
 			</tr>

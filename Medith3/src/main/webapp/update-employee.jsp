@@ -192,15 +192,17 @@ label {
 			</select>
 		</p>
 		<p>
-			<label for="time">勤続時間帯:</label> <select id="time" name="time">
-				<option value="朝" <%="朝".equals(emp.getTime()) ? "selected" : ""%>>朝</option>
-				<option value="夜" <%="夜".equals(emp.getTime()) ? "selected" : ""%>>夜</option>
+			<label for="time">勤務時間帯:</label> <select id="time" name="time">
+				<option value="日勤" <%="日勤".equals(emp.getTime()) ? "selected" : ""%>>日勤</option>
+				<option value="準夜勤" <%="準夜勤".equals(emp.getTime()) ? "selected" : ""%>>準夜勤</option>
+				<option value="深夜勤" <%="深夜勤".equals(emp.getTime()) ? "selected" : ""%>>深夜勤</option>
 				<option value="不在" <%="不在".equals(emp.getTime()) ? "selected" : ""%>>不在</option>
+				
 			</select>
 		</p>
 		<p>
 			<label for="password">パスワード:</label> <input type="password"
-				id="input_pass" name="password" minlength="9" maxlength="32"
+				id="input_psass" name="password" minlength="9" maxlength="32"
 				value="<%=emp.getPassword()%>" pattern="^[a-zA-Z0-9]+$" required
 				placeholder="※半角英数で入力"> <input type="button"
 				id="buttonPassword" value="表示" onclick="pushHideButton();">

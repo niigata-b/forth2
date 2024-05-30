@@ -113,7 +113,7 @@ button {
 			<input type="hidden" name="year" value="<%= emp.getYear() %>">
 		</p>
 		<p>
-			勤続時間帯:
+			勤務時間帯:
 			<%= emp.getTime() %>
 			<input type="hidden" name="time" value="<%= emp.getTime() %>">
 		</p>

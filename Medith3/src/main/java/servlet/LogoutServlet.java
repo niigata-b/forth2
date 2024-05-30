@@ -14,8 +14,10 @@ public class LogoutServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        response.sendRedirect("logout.html");
+    	// リクエストのエンコーディング方式を指定
+		request.setCharacterEncoding("UTF-8");
+		
+        response.sendRedirect("logout.jsp");
     }
 
     @Override

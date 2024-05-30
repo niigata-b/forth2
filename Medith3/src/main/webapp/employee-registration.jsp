@@ -180,9 +180,10 @@ input[type="submit"] {
 			</p>
 
 			<p>
-				<label>勤続時間帯:</label> <select name="time">
-					<option value="朝">朝</option>
-					<option value="夜">夜</option>
+				<label>勤務時間帯:</label> <select name="time">
+					<option value="日勤">日勤</option>
+					<option value="準夜勤">準夜勤</option>
+					<option value="深夜勤">深夜勤</option>
 					<option value="不在">不在</option>
 				</select>
 			</p>
