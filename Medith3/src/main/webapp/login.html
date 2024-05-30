@@ -33,21 +33,16 @@
     padding: 10px;
     padding: 10px;
     font-size: 100%;
-    
     box-shadow: 3px 3px 3px gray;
  	
     }
     
-   .hover-d3:hover{
- background-color: violet;
- color: black;
- opacity: 0.8;
-}
+ 
     
   label {
     display: inline-block;
     width: 150px;
-    vertical-align: top;
+    vertical-align: center;
     
 }
 
@@ -61,8 +56,8 @@
 
 	<form action="login" method="post">
 		<h1><span class="s1">ログイン</span></h1>
-		<label for="employee_id">従業員ID: </label><input type="text" name="employee_id" class="d1" maxlength="5" pattern="^[a-zA-Z0-9]+$" required placeholder="※半角英数字で入力" required></dd><br><br>
-		<label for="password">パスワード: </label><input type="password" id="input_pass" name="password" required class="d1" pattern="^[a-zA-Z0-9]+$" placeholder="※半角英数字で入力"></dd>
+		<label for="employee_id">従業員ID:</label><input type="text" name="employee_id" class="d1" maxlength="5" pattern="^[a-zA-Z0-9]+$" required placeholder="※半角英数字で入力" required><br><br>
+		<label for="password">パスワード:</label><input type="password" id="input_pass" name="password" required class="d1" pattern="^[a-zA-Z0-9]+$" placeholder="※半角英数字で入力">
 		
 		<input type="button" id="buttonPassword" value="表示" onclick="pushHideButton();">
 			<script language="javascript">
