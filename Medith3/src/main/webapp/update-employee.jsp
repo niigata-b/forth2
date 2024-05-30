@@ -182,7 +182,7 @@ label {
 		<p>
 			<label for="age">年齢:　　　 </label> <select id="age" name="age">
 				<%
-				for (int i = 1; i <= 100; i++) {
+				for (int i = 18; i <= 100; i++) {
 				%>
 				<option value="<%=i%>" <%=(i == emp.getAge()) ? "selected" : ""%>><%=i%></option>
 				<%
@@ -213,7 +213,7 @@ label {
 		</p>
 		<p>
 			<label for="password">パスワード:</label> <input type="password"
-				id="input_psass" name="password" minlength="9" maxlength="32"
+				id="input_pass" name="password" minlength="9" maxlength="32"
 				value="<%=emp.getPassword()%>" pattern="^[a-zA-Z0-9]+$" required
 				placeholder="※半角英数で入力"> <input type="button"
 				id="buttonPassword" value="表示" onclick="pushHideButton();">

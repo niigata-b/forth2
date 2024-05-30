@@ -167,7 +167,7 @@ input[type="submit"] {
 			<p>
 				<lable>年齢:　　　</lable> <select name="age">
 					<%
-					for (int i = 18; i <= 99; i++) {
+					for (int i = 18; i <= 100; i++) {
 					%>
 					<option value=<%=i%>>
 						<%=i%>歳
@@ -181,7 +181,7 @@ input[type="submit"] {
 			<p>
 				<label>勤続年数:　</label> <select name="year">
 					<%
-					for (int i = 1; i <= 99; i++) {
+					for (int i = 1; i <= 70; i++) {
 					%>
 					<option value=<%=i%>>
 						<%=i%>年
