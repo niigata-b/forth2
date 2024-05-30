@@ -46,7 +46,7 @@ public class BoardDeleteServlet extends HttpServlet {
             request.getRequestDispatcher("board-delete.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("board-delete-error.jsp");
         }
     }
 
