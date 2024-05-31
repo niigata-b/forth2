@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>エラーです</title>
 <style>
+html{
+	background-color: #f0f8ff;
+}
 body {
 	text-align: center;
 }
