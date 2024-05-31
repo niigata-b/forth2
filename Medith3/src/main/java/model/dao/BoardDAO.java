@@ -15,7 +15,7 @@ public class BoardDAO {
 	public List<BoardBean> selectAll() throws ClassNotFoundException, SQLException {
 		List<BoardBean> boardList = new ArrayList<BoardBean>();
 
-		String sql = "SELECT * FROM board";
+		String sql = "SELECT * FROM board ORDER BY board_id DESC";
 
 		try (Connection con = ConnectionManager.getConnection();
 				Statement stmt = con.createStatement();

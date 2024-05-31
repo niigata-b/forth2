@@ -215,7 +215,7 @@ th {
 	<%-- 検索条件を表示 --%>
 
 	<p style="margin-bottom: 20px; font-size: 20px;">●検索条件:</p>
-	<div style="margin-bottom: 20px; font-size: 20px;">
+	<div style="margin-bottom: 20px; font-size: 30px;">
 
 		従業員ID: <span style="margin-right: 20px; color: #005AFF; font-weight:bold;"> <%= request.getAttribute("employee_id") != null ? request.getAttribute("employee_id") : " " %>
 			<%-- request.getAttribute("name") が null でなければその値を表示し、null であれば " " と表示 --%>
