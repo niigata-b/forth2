@@ -28,7 +28,7 @@
 /* テーブル全体のスクロール設定 */
 .table {
 	overflow-y: auto;
-	max-height: 400px;
+	max-height: 330px;
 }
 
 /*後ろの色*/
