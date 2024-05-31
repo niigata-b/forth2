@@ -261,6 +261,18 @@ public class UserDAO {
 		}
 	}
 
+    public void updateTime(String employee_id, String time) throws SQLException, ClassNotFoundException {
+        String sql = "UPDATE employee SET time = ? WHERE employee_id = ?";
+
+        try (Connection con = ConnectionManager.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+            pstmt.setString(1, time);
+            pstmt.setString(2, employee_id);
+            pstmt.executeUpdate();
+        }
+    }
+
 
 
 

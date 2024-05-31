@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
             	// セッションを呼び出しておき
                 HttpSession session = request.getSession();
                 
-                // employeeIdなどを保存する
+                // employeeIdなどを保存する(データの名前,登録データ)
                 session.setAttribute("employee", emp);
                 
                 response.sendRedirect("menu-servlet");

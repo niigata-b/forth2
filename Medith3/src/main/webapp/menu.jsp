@@ -104,6 +104,7 @@ th, td {
 </style>
 </head>
 <body>
+<!-- セッション呼び出し  -->
 	<%
 	EmployeeBean emp = (EmployeeBean) session.getAttribute("employee");
 	%>
