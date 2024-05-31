@@ -90,6 +90,21 @@ p {
 .c1{
 		color:red;
 	}
+	.font-size{
+		font-size:150%;
+		font-weight:120%;
+		text-align: center;
+	}
+	.f-size{
+		font-size:100%;
+		font-weight:120%;
+		}
+	label {
+		display: inline-block;
+		width: 150px;
+		vertical-align: top;
+		
+	}
 </style>
 </head>
 <body>
@@ -103,31 +118,15 @@ p {
     EmployeeBean emp = (EmployeeBean) request.getAttribute("employee");
     if (emp != null) {
     %>
-		<p>以下の従業員情報が削除されました。</p>
-		<p>
-			従業員ID:
-			<%= emp.getEmployee_id() %></p>
-		<p>
-			役職名:
-			<%= emp.getPosition_name() %></p>
-		<p>
-			部署名:
-			<%= emp.getSection_name() %></p>
-		<p>
-			名前:
-			<%= emp.getName() %></p>
-		<p>
-			性別:
-			<%= emp.getGender() %></p>
-		<p>
-			年齢:
-			<%= emp.getAge() %></p>
-		<p>
-			勤続年数:
-			<%= emp.getYear() %></p>
-		<p>
-			勤続時間帯:
-			<%= emp.getTime() %></p>
+		<div class="font-size">以下の従業員情報が削除されました。</div><br><br>
+		<span class="f-size"> <label for="employee_id">従業員ID: </label><%= emp.getEmployee_id() %><br><br>
+            <label for="position_name">役職名: </label><%= emp.getPosition_name() %><br><br>
+            <label for="section_name">部署名: </label><%= emp.getSection_name() %><br><br>
+            <label for="name">名前: </label><%= emp.getName() %><br><br>
+            <label for="gender">性別: </label><%= emp.getGender() %><br><br>
+            <label for="age">年齢: </label><%= emp.getAge() %><br><br>
+            <label for="year">勤続年数: </label><%= emp.getYear() %><br><br>
+            <label for="time">勤続時間帯: </label><%= emp.getTime() %><br><br></span>
 
 		<form action="userlist" method="post">
 			<button type="submit" class="button-submit">従業員一覧に戻る</button>

@@ -8,6 +8,7 @@
 <title>削除確認</title>
 <style>
     body {
+    	text-align: center;
         font-family: Arial, sans-serif;
         margin: 20px;
         background-color: #f0f8ff; /* 背景色の設定 */
@@ -24,6 +25,7 @@
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: left; /* コンテナ内のテキストを左揃え */
     }
     p {
         font-size: 16px;
@@ -68,6 +70,20 @@
 .c1{
 		color:red;
 	}
+	.font-color{
+		font-size: 130%;
+		color: #FF0000;
+	}
+	.f-size{
+		font-size:110%;
+		font-weight:120%;
+	}
+	label {
+		display: inline-block;
+		width: 150px;
+		vertical-align: top;
+		
+	}
 </style>
 </head>
 <body>
@@ -79,15 +95,15 @@
 
         <% EmployeeBean emp = (EmployeeBean) request.getAttribute("employee");
         if (emp != null) { %>
-            <p>以下の従業員情報を削除します。よろしいですか？</p>
-            <p>従業員ID:　 <%= emp.getEmployee_id() %></p>
-            <p>役職名:　　 <%= emp.getPosition_name() %></p>
-            <p>部署名:　　 <%= emp.getSection_name() %></p>
-            <p>名前:　　　 <%= emp.getName() %></p>
-            <p>性別:　　　 <%= emp.getGender() %></p>
-            <p>年齢:　　　 <%= emp.getAge() %></p>
-            <p>勤続年数: 　<%= emp.getYear() %></p>
-            <p>勤続時間帯: <%= emp.getTime() %></p>
+            <p><span class="font-color">以下の従業員情報を削除します。よろしいですか？</span></p>
+           <span class="f-size"> <label for="employee_id">従業員ID: </label><%= emp.getEmployee_id() %><br><br>
+            <label for="position_name">役職名: </label><%= emp.getPosition_name() %><br><br>
+            <label for="section_name">部署名: </label><%= emp.getSection_name() %><br><br>
+            <label for="name">名前: </label><%= emp.getName() %><br><br>
+            <label for="gender">性別: </label><%= emp.getGender() %><br><br>
+            <label for="age">年齢: </label><%= emp.getAge() %><br><br>
+            <label for="year">勤続年数: </label><%= emp.getYear() %><br><br>
+            <label for="time">勤続時間帯: </label><%= emp.getTime() %><br><br></span>
 
             <div class="button-group">
                 <form action="deleteemployeefservlet" method="post">
