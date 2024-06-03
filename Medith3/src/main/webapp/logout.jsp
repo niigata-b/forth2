@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="javax.servlet.http.HttpSession"%>
+<%@ page import="model.entity.EmployeeBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,37 +58,49 @@ select {
 	width: 200px;
 	margin-bottom: 20px;
 }
-.font-f1 {
-		font-family: serif;
-		font-size: 150%;
-		position: absolute;
-		top: 20px;
-		left: 40px;
-	}
 
-	.c1 {
-		color: red;
-	}
+.font-f1 {
+	font-family: serif;
+	font-size: 150%;
+	position: absolute;
+	top: 20px;
+	left: 40px;
+}
+
+.c1 {
+	color: red;
+}
 </style>
 </head>
 <body>
 	<h2>
-		<div class="font-f1">Medi<span class="c1">✙</span>h</div>
+		<div class="font-f1">
+			Medi<span class="c1">✙</span>h
+		</div>
 	</h2>
 	<div class="container">
 		<div class="example">
 			<h1>
 				<span class="s1">ログアウト画面</span>
 			</h1>
+			<%
+		    EmployeeBean emp = (EmployeeBean) session.getAttribute("employee");
+		    
+			%>
 			<h2>ログアウトしますか。</h2>
 			<br>
 
 			<form action="TimeServlet" method="POST">
 				<label for="time">勤務時間帯:</label> <select id="time" name="time">
-					<option value="日勤">日勤</option>
-					<option value="準夜勤">準夜勤</option>
-					<option value="深夜勤">深夜勤</option>
-					<option value="不在">不在</option>
+					<option value="日勤"
+						<%="日勤".equals(emp.getTime()) ? "selected" : ""%>>日勤</option>
+					<option value="準夜勤"
+						<%="準夜勤".equals(emp.getTime()) ? "selected" : ""%>>準夜勤</option>
+					<option value="深夜勤"
+						<%="深夜勤".equals(emp.getTime()) ? "selected" : ""%>>深夜勤</option>
+					<option value="不在"
+						<%="不在".equals(emp.getTime()) ? "selected" : ""%>>不在</option>
+
 				</select> <br> <br> <input type="submit" value="ログアウト" class="d3"
 					style="text-align: center;">
 			</form>

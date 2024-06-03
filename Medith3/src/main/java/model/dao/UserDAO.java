@@ -105,7 +105,7 @@ public class UserDAO {
 
 	    // 検索条件が指定されている場合、それに応じてSQL文を追加
 	    if (employee_id != null && !employee_id.isEmpty()) {
-	        sql.append(" AND e.employee_id LIKE ?");  // 名前の条件を追加
+	        sql.append(" AND e.employee_id LIKE ?");  // 従業員IDの条件を追加
 	    }
 	    if (name != null && !name.isEmpty()) {
 	        sql.append(" AND e.name LIKE ?");  // 名前の条件を追加
@@ -128,10 +128,10 @@ public class UserDAO {
 
 	        // パラメータのインデックスを初期化
 	        int index = 1;
-
+	     
 	        // 各条件に応じてPreparedStatementにパラメータを設定
 	        if (employee_id != null && !employee_id.isEmpty()) {
-	            pstmt.setString(index++, "%" + employee_id + "%");  // 名前のパラメータを設定
+	            pstmt.setString(index++, "%" + employee_id + "%");  // 従業員IDのパラメータを設定
 	        }
 	        if (name != null && !name.isEmpty()) {
 	            pstmt.setString(index++, "%" + name + "%");  // 名前のパラメータを設定
